@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,4 +25,7 @@ Route::get('/my-account/profile',[UserController::class,'profile']);
 Route::post('/signin',[UserController::class,'login']);
 Route::get('/logout',[UserController::class,'logout']);
 
-// Route::get('/product',[UserController::class,'product'])->name('signUp');
+Route::get('/product',[HomeController::class,'product']);
+
+// Route::resource('/product',ProductController::class);
+Route::resource('/my-account/product',ProductController::class);

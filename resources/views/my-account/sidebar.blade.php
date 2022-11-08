@@ -5,13 +5,13 @@
     <span class="badge bg-primary rounded-pill"><i class="fa fa-arrow-right"></i></span>
   </li>
  </a>
- <a href="" class="fw-bold" style="text-decoration:none;">
+ <a href="{{url('my-account/product/create')}}" class="fw-bold" style="text-decoration:none;">
  <li class="list-group-item d-flex justify-content-between align-items-center">
    Add Product
     <span class="badge bg-primary rounded-pill"><i class="fa fa-arrow-right"></i></span>
   </li>
  </a>
- <a href="" class="fw-bold" style="text-decoration:none;">
+ <a href="{{url('my-account/product')}}" class="fw-bold" style="text-decoration:none;">
  <li class="list-group-item d-flex justify-content-between align-items-center">
    My Product
     <span class="badge bg-primary rounded-pill"><i class="fa fa-arrow-right"></i></span>

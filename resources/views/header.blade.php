@@ -12,7 +12,7 @@
                     <a class="nav-link active" href="{{url('/')}}" aria-current="page">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Products</a>
+                    <a class="nav-link" href="{{url('/product')}}">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Categories</a>
@@ -41,10 +41,11 @@
                 <a href=" {{route('signup_page')}} " class="btn btn-outline-success my-2 my-sm-0">SIGNUP</a>
             @else
             <li class=" dropdown" style="list-style:none!important;">
-                <a class="nav-link dropdown-toggle" href="{{url('/my-account/profile')}}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {{Session::get('first_name')}} 
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <li><a class="dropdown-item" href="{{url('/my-account/profile')}}">Profile</a></li>
                      <li><a class="dropdown-item" href="{{url('logout')}}">LOG OUT</a></li>
                     <!-- <li><a class="dropdown-item" href="#">Another action</a></li>
                     <li><hr class="dropdown-divider"></li>
