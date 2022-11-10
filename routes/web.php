@@ -21,11 +21,12 @@ Route::get('/', function () {
 Route::get('/signin',[UserController::class,'signin_page'])->name('signin_page');
 Route::get('/signup',[UserController::class,'signup_Page'])->name('signup_page');
 Route::post('/signup',[UserController::class,'registration']);
-Route::get('/my-account/profile',[UserController::class,'profile']);
+
+Route::get('/my-account/profile',[UserController::class,'profile'])->middleware('isLoggedIn');
+// Route::resource('/product',ProductController::class);
+Route::resource('/my-account/product',ProductController::class)->middleware('isLoggedIn');
 Route::post('/signin',[UserController::class,'login']);
 Route::get('/logout',[UserController::class,'logout']);
 
 Route::get('/product',[HomeController::class,'product']);
 
-// Route::resource('/product',ProductController::class);
-Route::resource('/my-account/product',ProductController::class);

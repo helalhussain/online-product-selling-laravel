@@ -188,6 +188,7 @@
 					<thead>
 						<tr>
 							<th><span>Image</span></th>
+							<th><span>Category</span></th>
 							<th><span>Title</span></th>
 							<th><span>price</span></th>
 							<th class="text-center"><span>Status</span></th>
@@ -203,13 +204,16 @@
 							
 							</td>
 							<td>
+								{{$product->cat_id}}
+							</td>
+							<td>
 								{{$product->title}}
 							</td>
 							<td class="text-center">
 								<span class="label label-default">{{$product->price}}</span>
 							</td>
 							<td>
-								<a href="#">mila@kunis.com</a>
+								<a href="#"></a>
 							</td>
 							<td style="width: 20%;">
 								<a href="#" class="table-link">
