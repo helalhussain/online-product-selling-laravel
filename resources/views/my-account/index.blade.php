@@ -204,7 +204,7 @@
 							
 							</td>
 							<td>
-								{{$product->cat_id}}
+								{{$product->category_title}}
 							</td>
 							<td>
 								{{$product->title}}

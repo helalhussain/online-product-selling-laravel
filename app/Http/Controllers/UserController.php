@@ -39,7 +39,9 @@ class UserController extends Controller
         return redirect('signin');
     }
     public function profile(){
-        return view('my-account.profile');
+        $user_id = Session::get('user_id');
+        $user_profile = User::where('id','=',$user_id)->first();
+        return view('my-account.profile',compact('user_profile'));
     }
     public function login(Request $request){
         $request->validate([

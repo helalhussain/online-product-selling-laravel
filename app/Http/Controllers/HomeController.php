@@ -12,11 +12,11 @@ class HomeController extends Controller
 {
     
     public function product(){
-       $product = DB::table('products')->join('categories','products.cat_id','=','categories.id')
+       $products = DB::table('products')->join('categories','products.cat_id','=','categories.id')
        ->join('users','products.user_id','=','users.id')
        ->select('users.*','products.*','categories.category_title')->get();
         $categories = Category::all();
-        return view('product',compact('product','categories'));
+        return view('product',compact('products','categories'));
     }
   
 }

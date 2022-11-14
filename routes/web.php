@@ -25,6 +25,7 @@ Route::post('/signup',[UserController::class,'registration']);
 Route::get('/my-account/profile',[UserController::class,'profile'])->middleware('isLoggedIn');
 // Route::resource('/product',ProductController::class);
 Route::resource('/my-account/product',ProductController::class)->middleware('isLoggedIn');
+
 Route::post('/signin',[UserController::class,'login']);
 Route::get('/logout',[UserController::class,'logout']);
 

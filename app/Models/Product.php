@@ -17,5 +17,6 @@ class Product extends Model
         'division',
         'address',
         'condition',
+        'image'
     ];
 }

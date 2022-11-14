@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\Category;
 use Session;
+use Illuminate\Support\Facades\DB;
 
 
 class ProductController extends Controller
@@ -18,7 +19,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products =  Product::all();
+        $products =  DB::table('products')->join('categories','products.cat_id','=','categories.id')
+        ->select('products.*','categories.category_title')->get();
         return view('my-account.index',compact('products'));
     }
 
@@ -75,7 +77,6 @@ class ProductController extends Controller
                 $fileName.=$i;
                 $fileName.='.';
                 $fileName.=$fileNameExtract[1];
-
                 $file->move('image',$fileName);
                 $images[]=$fileName;
                 $i++;
@@ -83,7 +84,7 @@ class ProductController extends Controller
             $product['image'] = implode("|",$images);
 
             $product->save();
-            return redirect('')->back()->with('success', 'New Products added Succesfully!');
+            return redirect('my-account/product');
         }
         else{
             echo "error";

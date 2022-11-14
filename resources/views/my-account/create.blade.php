@@ -131,7 +131,7 @@
                 <div class="row mt-3">
                     <div class="col-md-6">
                         <label class="labels">Upload images</label>
-                        <input type="file" name="file[]" class="form-control" placeholder="country" value="" required>
+                        <input type="file" name="file[]" class="form-control"  multiple required>
                         @error('file[]')
                         <small class="form-text text-danger"> {{$message}} </small>
                         @enderror
