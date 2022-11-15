@@ -23,8 +23,12 @@ Route::get('/signup',[UserController::class,'signup_Page'])->name('signup_page')
 Route::post('/signup',[UserController::class,'registration']);
 
 Route::get('/my-account/profile',[UserController::class,'profile'])->middleware('isLoggedIn');
+Route::get('/my-account/edit-profile',[UserController::class,'edit_profile'])->middleware('isLoggedIn');
+Route::post('/my-account/edit-profile',[UserController::class,'edit_profile_info']);
 // Route::resource('/product',ProductController::class);
 Route::resource('/my-account/product',ProductController::class)->middleware('isLoggedIn');
+Route::get('/product-detail/{$id}',[ProductController::class,'product_detail'])->name('product_detail_page');
+
 
 Route::post('/signin',[UserController::class,'login']);
 Route::get('/logout',[UserController::class,'logout']);

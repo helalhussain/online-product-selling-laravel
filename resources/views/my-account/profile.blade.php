@@ -74,7 +74,7 @@
                 <h6 class="mb-0">Phone</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-               
+               {{$user_profile->phone_no}}
               </div>
             </div>
             <hr>
@@ -83,7 +83,7 @@
                 <h6 class="mb-0">Division</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                
+                {{$user_profile->division}}
               </div>
             </div>
             <hr>
@@ -92,13 +92,13 @@
                 <h6 class="mb-0">Address</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-               
+               {{$user_profile->address}}
               </div>
             </div>
             <hr>
             <div class="row">
               <div class="col-sm-12">
-                <a class="btn btn-success " target="__blank" href="">Add or Edit info</a>
+                <a class="btn btn-success " href="{{url('/my-account/edit-profile')}}">Add or Edit info</a>
               </div>
             </div>
           </div>

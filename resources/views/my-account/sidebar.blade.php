@@ -1,5 +1,5 @@
 <ul class="list-group">
- <a href="" class="fw-bold" style="text-decoration:none;">
+ <a href="{{url('my-account/profile')}}" class="fw-bold" style="text-decoration:none;">
  <li class="list-group-item d-flex justify-content-between align-items-center">
     My profile
     <span class="badge bg-primary rounded-pill"><i class="fa fa-arrow-right"></i></span>

@@ -100,7 +100,11 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+       
+    }
+    public function product_detail($id){
+        $product_detail=Product::find($id);
+        return view('product_detail',compact('product_detail'));
     }
 
     /**

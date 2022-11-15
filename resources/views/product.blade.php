@@ -57,7 +57,7 @@
 									<div class="col-lg-4">
 										<div class="text-right">
 							
-										<a class='btn btn-success' href=''>View</a>										</div>
+									<a class='btn btn-success' href="{{route('product_detail_page',$product->id)}}">View</a>										</div>
 									</div>
 								</div>
                             </div>

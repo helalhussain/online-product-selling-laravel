@@ -71,4 +71,25 @@ class UserController extends Controller
         Session::flush();
         return redirect('signin');
     }
+
+    public function edit_profile(){
+        $user_id = Session::get('user_id');
+        $edit_profile = User::where('id',$user_id)->first();
+        return view('my-account.edit_profile',compact('edit_profile'));
+    }
+    
+    public function edit_profile_info(Request $request){
+      
+        $data = User::find($request->id);
+        $data->first_name = $request->first_name;
+        $data->last_name = $request->last_name;
+        $data->dob = $request->dob;
+        $data->gender = $request->gender;
+        $data->phone_no = $request->phone_no;
+        $data->division = $request->division;
+        $data->address = $request->address;
+        $data->save();
+        return redirect('my-account.profile');
+
+    }
 }
