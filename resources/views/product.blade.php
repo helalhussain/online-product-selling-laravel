@@ -21,6 +21,10 @@
 
                     <div class="row">
                         @foreach($products as $product)
+                         @php
+                   
+                          
+                        @endphp 
             
                         <div class="col-lg-4">
                             <!--card start-->
@@ -57,7 +61,7 @@
 									<div class="col-lg-4">
 										<div class="text-right">
 							
-									<a class='btn btn-success' href="{{route('product_detail_page',$product->id)}}">View</a>										</div>
+									<a class='btn btn-success' href="{{url('/product-detail/'.$product->id)}}">View</a>										</div>
 									</div>
 								</div>
                             </div>

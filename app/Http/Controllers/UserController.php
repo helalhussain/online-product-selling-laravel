@@ -92,4 +92,20 @@ class UserController extends Controller
         return redirect('my-account.profile');
 
     }
+    public function edit_profile_image(){
+        $user_id = Session::get('user_id');
+        $profile_image=User::where('id',$user_id)->first();
+       
+        return view('my-account.edit_profile_image',compact('profile_image'));
+    }
+    public function edited_profile_image(Request $request){
+      
+        $data = User::find($request->id);
+        $data->image=$request->image->store('profile');
+        $data->save();
+        return redirect('my-account.profile');
+
+    }
+
+
 }
