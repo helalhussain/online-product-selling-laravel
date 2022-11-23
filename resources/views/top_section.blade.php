@@ -11,7 +11,7 @@
             <div class="input-group mb-3">
                 <input type="text" name="search" class="form-control" value="" placeholder="What are you looking for?" required>
                 <div class="input-group-append">
-                    <button type="submit" class="btn btn-light" name="sear" id="basic-addon2">Search</button>
+                    <button type="submit" class="btn btn-light" id="basic-addon2">Search</button>
                 </div>
             </div>
             </form>

@@ -10,7 +10,9 @@
         <div class="row">
             <div class="row">
                 <div class="col-lg-3">
+                
                     @include('sidebar_product')
+
                 </div>
                 <!----col-lg-9 start--->
                 <div class="col-lg-9">
@@ -19,20 +21,22 @@
                     / <a href="">All ads in Bangladesh</a></h5>
                 <h5 class="font-weight-bold text-success">All ads in Bangladesh</h5><hr><br>
 
-                    <div class="row">
+                    <div class="row gy-4">
                         @foreach($products as $product)
                          @php
                    
-                          
+                       
                         @endphp 
             
                         <div class="col-lg-4">
                             <!--card start-->
-                        <div class="card p-2" style="">
+                        <div class="card p-2 " style="">
                         <!---Top start-->
                         <div class="row Top ">
                             <div class="col-lg-3">
-                            <img class="card-img-top" src="" style="height:40px; border:1px solid black; width:40px;heigh:40px;border-radius:50%;" alt="">
+                       
+                             <img class="card-img-top" src="{{asset('/storage/'.$product->user_image)}}" 
+                             style="height:40px; border:1px solid black; width:40px;heigh:40px;border-radius:50%;" alt="">
                             </div>
                             <div class="col-lg-8" style="line-height: 0.5;">
                                 <h6 class="text-success f-5"><strong>{{ $product->first_name}}</strong> 
@@ -43,7 +47,8 @@
                         <!--Top end-->
        
                         
-                            <img src="" alt="">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                            class="pt-2" style="height:200px;" alt="">
                             <div class="card-body">
                                 <h6 class="card-title f-5"> {{$product->title}} </h6>
                         <div class="cat pt-3" style="line-height: 0.4;">

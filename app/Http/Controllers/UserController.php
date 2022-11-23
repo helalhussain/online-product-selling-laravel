@@ -89,7 +89,7 @@ class UserController extends Controller
         $data->division = $request->division;
         $data->address = $request->address;
         $data->save();
-        return redirect('my-account.profile');
+        return redirect('my-account/profile');
 
     }
     public function edit_profile_image(){
@@ -101,9 +101,9 @@ class UserController extends Controller
     public function edited_profile_image(Request $request){
       
         $data = User::find($request->id);
-        $data->image=$request->image->store('profile');
+        $data->user_image=$request->image->store('profile');
         $data->save();
-        return redirect('my-account.profile');
+        return redirect('my-account/profile');
 
     }
 

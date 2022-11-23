@@ -29,7 +29,7 @@
               <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
               -->
              
-              <img src="{{$user_profile->image}}" alt="Profile" class="rounded-circle" width="150">
+              <img src="{{asset('/storage/'.$user_profile->user_image)}}" alt="Profile" class="rounded-circle" height="140" width="150">
               <div class="mt-3">
                 <h4>  {{$user_profile->first_name}} {{$user_profile->last_name}}</h4>
                 <!-- <p class="text-secondary mb-1">Full Stack Developer</p> -->

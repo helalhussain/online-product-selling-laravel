@@ -14,7 +14,7 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Edit Profile Image</h4>
                 </div>
-                <form action="{{url('/my-account/edit-profile-image')}}" method="POST">
+                <form action="{{url('/my-account/edit-profile-image')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @if(Session::has('success'))
                         <span class="text-danger"> {{Session::get('success')}} </span>

@@ -143,11 +143,12 @@
                 <div class="row m-2">
                     <div class="col-lg-6">
                     <h5 class="font-weight-bold ">Contact details</h5><hr>
+
                                 <br>
                                 <label class="font-weight-bold text-primary">Name </label><br>
-                                <span>Helal &nbsp;Hussain</span><br><br>
+                                <span>{{$user_detail->first_name}} &nbsp;{{$user_detail->last_name}}</span><br><br>
                                 <label class="font-weight-bold text-primary">Email </label><br>
-                                <span>helal12@gmail.com</span><br><br>
+                                <span>{{$user_detail->email}}</span><br><br>
                     </div>
                     <div class="col-lg-6"></div>
                 </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Division;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -16,7 +17,8 @@ class HomeController extends Controller
        ->join('users','products.user_id','=','users.id')
        ->select('users.*','products.*','categories.category_title')->get();
         $categories = Category::all();
-        return view('product',compact('products','categories'));
+        $divisions = Division::all();
+        return view('product',compact('products','divisions','categories'));
     }
   
 }

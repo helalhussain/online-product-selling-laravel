@@ -7,13 +7,15 @@
        </style>    
            <ul class="list-group">
                     <h6 class="list-group-item list-group-item-action active" aria-current="true">All Categories</h6>
-                        <a href="mobiles.php">
+                    @foreach($categories as $show_categories)
+                        <a href="{{$show_categories->category_title}}">
                         <li class="list-group-item d-flex font-weight-bold align-items-center">
                         <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                        Mobiles
+                        {{$show_categories->category_title}}
                         </li>
                         </a>
-                        <a href="electronics.php">
+                        @endforeach
+                        <!-- <a href="electronics.php">
                         <li class="list-group-item text d-flex font-weight-bold align-items-center">
                         <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                             Electronics
@@ -54,19 +56,21 @@
                         <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                         Home & Living
                         </li>
-                        </a>
+                        </a> -->
                     </ul>
                     <br>
                     <!---------------------------area------------------->
                     <ul class="list-group">
                     <h6 class="list-group-item list-group-item-action active">All of Bangladesh</h6>
-                        <a href="dhaka.php">
+                    @foreach($divisions as $show_divisions)
+                    <a href="{{$show_divisions}}">
                         <li class="list-group-item d-flex font-weight-bold align-items-center">
                         <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                        Dhaka
+                        {{$show_divisions->division_title}}
                         </li>
                         </a>
-                        <a href="chattogram.php">
+                    @endforeach
+                        <!-- <a href="chattogram.php">
                         <li class="list-group-item d-flex font-weight-bold align-items-center">
                         <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                         Chattogram
@@ -114,5 +118,5 @@
                         <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                         Comilla
                         </li>
-                        </a>
+                        </a> -->
                     </ul>

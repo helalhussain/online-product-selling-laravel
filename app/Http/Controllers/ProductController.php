@@ -19,8 +19,10 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $user_id = Session::get('user_id');
         $products =  DB::table('products')->join('categories','products.cat_id','=','categories.id')
-        ->select('products.*','categories.category_title')->get();
+        ->select('products.*','categories.category_title')
+        ->where('products.user_id','=',$user_id)->get();
         return view('my-account.index',compact('products'));
     }
 
@@ -31,8 +33,10 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $user_id = Session::get('user_id');
+        $user_detail = User::where('id',$user_id)->first();
         $category = Category::all();
-        return view('my-account.create',compact('category'));
+        return view('my-account.create',compact('category','user_detail'));
     }
 
     /**

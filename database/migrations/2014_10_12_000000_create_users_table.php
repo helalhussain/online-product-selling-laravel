@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('phone_no')->nullable();
             $table->string('division')->nullable();
             $table->string('address')->nullable();
-            $table->string('image')->nullable();
+            $table->string('user_image')->nullable();
             $table->boolean('status')->default('1');
             $table->timestamps();
         });

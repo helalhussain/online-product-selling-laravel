@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('description',500);
             $table->string('price');
             $table->string('negotiable')->nullable();
-            $table->string('images');
+            $table->string('image');
             $table->boolean('status')->default('1');
             $table->timestamps();
         });

@@ -22,7 +22,7 @@
 @include('header')
 @yield('user_content')
 
-
+@include('footer')
 
 
   <!-- Bootstrap JavaScript Libraries -->

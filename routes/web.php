@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +34,7 @@ Route::post('/my-account/edit-profile-image',[UserController::class,'edited_prof
 // Route::resource('/product',ProductController::class);
 Route::resource('/my-account/product',ProductController::class)->middleware('isLoggedIn');
 Route::get('/product-detail/{id}',[ProductController::class,'product_detail'])->name('product_detail_page');
+
 
 
 Route::post('/signin',[UserController::class,'login']);
