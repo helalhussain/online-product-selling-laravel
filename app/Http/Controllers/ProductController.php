@@ -119,7 +119,7 @@ class ProductController extends Controller
        
     }
     public function product_detail($id){
-        $product_detail=Product::find($id);
+        $product_detail=DB::table('products')->get();
         return view('product_detail',compact('product_detail'));
     }
 

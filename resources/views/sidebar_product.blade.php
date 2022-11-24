@@ -6,6 +6,7 @@
         }
        </style>    
            <ul class="list-group">
+            <br/>
                     <h6 class="list-group-item list-group-item-action bg-success active" aria-current="true">All Categories</h6>
                     @foreach($categories as $show_categories)
                         <a href="{{url('/category/'.$show_categories->id)}}">

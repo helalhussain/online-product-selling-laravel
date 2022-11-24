@@ -29,7 +29,9 @@
               <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
               -->
              @if($user_profile->user_image==NULL)
-             <img src="https://previews.123rf.com/images/imagevectors/imagevectors1605/imagevectors160500502/56499050-blanco-etiqueta-de-icono-de-perfil-en-el-papel-arrugado.jpg" alt="Profile" class="rounded-circle" height="140" width="150">
+             <img src="https://previews.123rf.com/images/imagevectors/imagevectors1605/
+             imagevectors160500502/56499050-blanco-etiqueta-de-icono-de-perfil-en-el-papel
+             -arrugado.jpg" alt="Profile" class="rounded-circle" height="140" width="150">
              @else
              <img src="{{asset('/storage/'.$user_profile->user_image)}}" alt="Profile" class="rounded-circle" height="140" width="150">
              @endif
