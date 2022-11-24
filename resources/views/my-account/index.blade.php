@@ -200,7 +200,7 @@
                         @foreach($products as $product)
 						<tr >
 							<td>
-								<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+								<img src="{{asset('/storage/'.$product->image_1)}}" alt="">
 							
 							</td>
 							<td>

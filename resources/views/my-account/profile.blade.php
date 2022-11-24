@@ -28,9 +28,12 @@
             <div class="d-flex flex-column align-items-center text-center">
               <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
               -->
-             
-              <img src="{{asset('/storage/'.$user_profile->user_image)}}" alt="Profile" class="rounded-circle" height="140" width="150">
-              <div class="mt-3">
+             @if($user_profile->user_image==NULL)
+             <img src="https://previews.123rf.com/images/imagevectors/imagevectors1605/imagevectors160500502/56499050-blanco-etiqueta-de-icono-de-perfil-en-el-papel-arrugado.jpg" alt="Profile" class="rounded-circle" height="140" width="150">
+             @else
+             <img src="{{asset('/storage/'.$user_profile->user_image)}}" alt="Profile" class="rounded-circle" height="140" width="150">
+             @endif
+             <div class="mt-3">
                 <h4>  {{$user_profile->first_name}} {{$user_profile->last_name}}</h4>
                 <!-- <p class="text-secondary mb-1">Full Stack Developer</p> -->
                 <p class="text-muted font-size-sm"> {{$user_profile->email}} </p>

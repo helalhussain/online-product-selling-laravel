@@ -6,9 +6,9 @@
         }
        </style>    
            <ul class="list-group">
-                    <h6 class="list-group-item list-group-item-action active" aria-current="true">All Categories</h6>
+                    <h6 class="list-group-item list-group-item-action bg-success active" aria-current="true">All Categories</h6>
                     @foreach($categories as $show_categories)
-                        <a href="{{$show_categories->category_title}}">
+                        <a href="{{url('/category/'.$show_categories->id)}}">
                         <li class="list-group-item d-flex font-weight-bold align-items-center">
                         <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                         {{$show_categories->category_title}}
@@ -61,9 +61,10 @@
                     <br>
                     <!---------------------------area------------------->
                     <ul class="list-group">
-                    <h6 class="list-group-item list-group-item-action active">All of Bangladesh</h6>
+                    <h6 class="list-group-item list-group-item-action bg-success active">All of Bangladesh</h6>
                     @foreach($divisions as $show_divisions)
-                    <a href="{{$show_divisions}}">
+                    <a href="{{url('/division/'.$show_divisions->id)}}">
+                
                         <li class="list-group-item d-flex font-weight-bold align-items-center">
                         <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                         {{$show_divisions->division_title}}

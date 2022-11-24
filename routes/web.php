@@ -40,6 +40,8 @@ Route::get('/product-detail/{id}',[ProductController::class,'product_detail'])->
 Route::post('/signin',[UserController::class,'login']);
 Route::get('/logout',[UserController::class,'logout']);
 Route::get('/product',[HomeController::class,'product']);
+Route::get('/category/{id}',[HomeController::class,'view_category_product']);
+Route::get('/division/{id}',[HomeController::class,'view_division_product']);
 
 //Admin
 Route::get('/admin/admin',[AdminAuthController::class,'admin']);

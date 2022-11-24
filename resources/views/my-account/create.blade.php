@@ -39,20 +39,15 @@
                     </div>
                     <div class="col-md-6">
                         <label class="labels">Division</label>
-                        <select name="division" class="form-control @error('division')
+                        <select name="division_id" class="form-control @error('division_id')
                                 is-invalid @enderror">
                             <option value="">Select division</option>
-                            <option value="Dhaka">Dhaka</option>
-                          <option value="Chattogram">Chattogram</option>
-                          <option value="Sylhet">Sylhet</option>
-                          <option value="Khulna">Khulna</option>
-                          <option value="Borishal">Borishal</option>
-                          <option value="Rangpur">Rangpur</option>
-                          <option value="Rajshahi">Rajshahi</option>
-                          <option value="Mymenshingh">Mymenshingh</option>
-                          <option value="Comilla">Comilla</option>
+                            @foreach($division as $divisions)
+                            <option value="{{$divisions->id}}">{{$divisions->division_title}}</option>
+                            @endforeach
+               
                         </select>
-                        @error('division')
+                        @error('division_id')
                         <small class="form-text text-danger"> {{$message}} </small>
                         @enderror
                     </div>
@@ -119,20 +114,44 @@
                         <small class="form-text text-danger"> {{$message}} </small>
                         @enderror
                 </div>
-                    <div class="col-md-6">
+
+                </div>
+                <div class mt-3>
+                <div class="col-md-6">
                   
-                        <div class="form-check form-check-inline"><br/>
-                          <input class="form-check-input" type="checkbox" name="negotiable"  value="negotiable">
-                          <label class="form-check-label " for="inlineRadio1">Negotiable</label>
-                        </div>
-                    </div>
+                  <div class="form-check form-check-inline"><br/>
+                    <input class="form-check-input" type="checkbox" name="negotiable"  value="negotiable">
+                    <label class="form-check-label " for="inlineRadio1">Negotiable</label>
+                  </div>
+              </div>
                 </div>
                 <hr/>
                 <div class="row mt-3">
-                    <div class="col-md-6">
-                        <label class="labels">Upload images</label>
-                        <input type="file" name="file[]" class="form-control"  multiple required>
-                        @error('file[]')
+                    <div class="col-md-3">
+                        <label class="labels">Upload image </label>
+                        <input type="file" name="image_1" class="form-control" required>
+                        @error('image_1')
+                        <small class="form-text text-danger"> {{$message}} </small>
+                        @enderror
+                    </div>
+                    <div class="col-md-3">
+                        <label class="labels">Upload image</label>
+                        <input type="file" name="image_2" class="form-control">
+                        @error('image_2')
+                        <small class="form-text text-danger"> {{$message}} </small>
+                        @enderror
+                    </div>
+                    <div class="col-md-3">
+                        <label class="labels">Upload image</label>
+                        <input type="file" name="image_3" class="form-control" >
+                        @error('image_3')
+                        <small class="form-text text-danger"> {{$message}} </small>
+                        @enderror
+                    </div>
+                    <div class="col-md-3">
+                        <label class="labels">Upload image</label>
+                        <input type="file" name="image_4" class="form-control">
+                        @error('image_4')
                         <small class="form-text text-danger"> {{$message}} </small>
                         @enderror
                     </div>

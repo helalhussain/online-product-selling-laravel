@@ -21,7 +21,7 @@
                     / <a href="">All ads in Bangladesh</a></h5>
                 <h5 class="font-weight-bold text-success">All ads in Bangladesh</h5><hr><br>
 
-                    <div class="row gy-4">
+                    <div class="row gy-2">
                         @foreach($products as $product)
                          @php
                    
@@ -35,26 +35,30 @@
                         <div class="row Top ">
                             <div class="col-lg-3">
                        
-                             <img class="card-img-top" src="{{asset('/storage/'.$product->user_image)}}" 
-                             style="height:40px; border:1px solid black; width:40px;heigh:40px;border-radius:50%;" alt="">
+                            @if($product->user_image==NULL)
+                            <img src="https://previews.123rf.com/images/imagevectors/imagevectors1605/imagevectors160500502/56499050-blanco-etiqueta-de-icono-de-perfil-en-el-papel-arrugado.jpg" alt="Profile" style="height:40px; border:1px solid black; width:40px;heigh:40px;border-radius:50%;">
+                            @else
+                            <img src="{{asset('/storage/'.$product->user_image)}}" alt="Profile"
+                            style="height:40px; border:1px solid black; width:40px;heigh:40px;border-radius:50%;">
+                            @endif
                             </div>
                             <div class="col-lg-8" style="line-height: 0.5;">
                                 <h6 class="text-success f-5"><strong>{{ $product->first_name}}</strong> 
                                 <strong>{{ $product->last_name}}</strong></h6>
-                                <p class="card-text text-left" style="font-size:13px;">12:08:pm 17-08-2021</p>
+                                <p class="card-text text-left" style="font-size:13px;"> {{$product->created_at}} </p>
                             </div>
                         </div>
                         <!--Top end-->
        
                         
-                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                            <img src="{{asset('/storage/'.$product->image_1)}}"
                             class="pt-2" style="height:200px;" alt="">
                             <div class="card-body">
                                 <h6 class="card-title f-5"> {{$product->title}} </h6>
                         <div class="cat pt-3" style="line-height: 0.4;">
                         <p class="card-text text-primary font-weight-bold"
                          style="text-transform: capitalize; font-size:16px;">
-                         {{ $product->category_title}} <span class="text-success"> {{ $product->division}}</span></p>
+                         {{ $product->category_title}} <span class="text-success"> {{ $product->division_id}}</span></p>
                                 <p class="card-text font-weight-bold" style="text-transform: capitalize; font-size:16px;">
                                  {{$product->address}} </p>
                         </div>

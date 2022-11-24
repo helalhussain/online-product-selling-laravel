@@ -21,13 +21,13 @@
     color: var(--highlightText);
     line-height: 35px;
 }
-.fa{
+.social_icon{
     font-weight: 400;
     color: white;
     font-size: 40px;
     margin-right: 6px;
 }
-.fa:hover{
+.social_icon:hover{
     font-weight: 400;
     /* color: var(--highlightText); */
    
@@ -83,9 +83,9 @@
                         <div class="follow-us">
                             <h4 >Follow us</h4>
                             <div class="social-icon">
-                                <a href = '#'><i class="fa fa-facebook-square"></i></a>
-                                <a href = '#'><i class="fa fa-twitter-square"></i></a>
-                                <a href = '#'><i class="fa fa-linkedin-square"></i> </a>
+                                <a href = '#'><i class="fa social_icon fa-facebook-square"></i></a>
+                                <a href = '#'><i class="fa social_icon fa-twitter-square"></i></a>
+                                <a href = '#'><i class="fa social_icon fa-linkedin-square"></i> </a>
                             </div>
                         </div>
                     </div>
