@@ -14,17 +14,16 @@
                 <li class="nav-item">
                     <a class="nav-link fw-bold" href="{{url('/product')}}">Products</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link fw-bold" href="#">Areas</a>
-                </li>
    
-               <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" 
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Area</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
                         <a class="dropdown-item" href="#">Action 1</a>
                         <a class="dropdown-item" href="#">Action 2</a>
                     </div>
-                </li>  -->
+                </li> 
             </ul>
 
             @php

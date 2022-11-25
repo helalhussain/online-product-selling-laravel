@@ -59,7 +59,7 @@ class ProductController extends Controller
            'phone_no' => 'required',
            'condition' => 'required',
            'title' => 'required|min:5|max:150',
-           'description' =>'required|min:10:max:400',
+           'description' =>'required|min:10|max:450',
            'price' =>'required', 
            
         ]);
@@ -119,7 +119,7 @@ class ProductController extends Controller
        
     }
     public function product_detail($id){
-        $product_detail=DB::table('products')->get();
+        $product_detail=Product::find($id);
         return view('product_detail',compact('product_detail'));
     }
 
@@ -129,9 +129,13 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        $user_id = Session::get('user_id');
+        $user_detail = User::where('id',$user_id)->first();
+        $category = Category::all();
+        $division = Division::all();
+        return view('my-account.edit_product',compact('user_detail','product','category','division'));
     }
 
     /**
@@ -152,8 +156,13 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $delete =$product->delete();
+        if($delete){
+            return redirect('my-account/product');
+        }else{
+            return redirect('my-account/product');
+        }
     }
 }

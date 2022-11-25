@@ -64,7 +64,11 @@
                             <td> {{$users->first_name}} {{$users->last_name}} </td>
                             <td> {{$users->email}} </td>
                             <td> {{$users->division}} </td>
-                            <td> {{$users->status}} </td>
+                            @if($users->status ==1)
+                            <td><a href="{{url('/admin/all-user-status/'.$users->id)}}"class="btn btn-danger">Block</a> </td>
+                            @else
+                            <td><a href="{{url('/admin/all-user-status/'.$users->id)}}" class="btn btn-light">Unblock</a> </td>
+                            @endif
                         </tr>
                         @endforeach
                     </tbody>

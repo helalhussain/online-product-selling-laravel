@@ -1,3 +1,8 @@
+<style>
+    svg{
+        width: 30px;
+    }
+</style>
 @extends('master')
 @section('user_content')
 
@@ -78,7 +83,9 @@
                             <!--card end-->
                         </div>
                         @endforeach
-                    </div>
+                    </div><br/>
+                    {{ $products->links() }}
+                    <br/>
 
 
                     </div>

@@ -128,7 +128,7 @@
                 <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                 Comilla
                 </li>
-                </a> -->
+                </a> 
             </ul>
             <!--end sidebar--->
                 </div>
@@ -147,14 +147,14 @@
                             <div class="col-md-6 border-end">
                               <div class="d-flex flex-column justify-content-center">	
                                 <div class="main_image">	
-                                    <img src="https://i.imgur.com/TAzli1U.jpg" id="main_product_image" width="350">	
+                                    <img src="{{asset('/storage/'.$product_detail->image_1)}}" id="main_product_image" width="350">	
                                 </div>
                                 <div class="thumbnail_images">
                                 <ul id="thumbnail">
-                                 <li><img onclick="changeImage(this)" src="https://i.imgur.com/TAzli1U.jpg" width="70"></li>	
-                                 <li><img onclick="changeImage(this)" src="https://i.imgur.com/w6kEctd.jpg" width="70"></li>	
-                                 <li><img onclick="changeImage(this)" src="https://i.imgur.com/L7hFD8X.jpg" width="70"></li>	
-                                 <li><img onclick="changeImage(this)" src="https://i.imgur.com/6ZufmNS.jpg" width="70"></li>	
+                                 <li><img onclick="changeImage(this)" src="{{asset('/storage/'.$product_detail->image_1)}}" width="70"></li>	
+                                 <li><img onclick="changeImage(this)" src="{{asset('/storage/'.$product_detail->image_2)}}" width="70"></li>	
+                                 <li><img onclick="changeImage(this)" src="{{asset('/storage/'.$product_detail->image_3)}}" width="70"></li>	
+                                 <li><img onclick="changeImage(this)" src="{{asset('/storage/'.$product_detail->image_4)}}" width="70"></li>	
                                 </ul>	
                             </div>	
                         </div>	
@@ -191,7 +191,7 @@
                     </div>
                     <!---End row-->
                     </div>
-                    
+                    <h4 class="text-success">Similar product</h4><hr/><br/>
                 </div>
                 <!------col-lg-9 end-->
             </div>

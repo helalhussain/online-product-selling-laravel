@@ -12,7 +12,7 @@
             <div class="rounded bg-white  mb-5">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Add Product</h4>
+                    <h4 class="text-right">Edit Product</h4>
                 </div>
                 <form action="{{url('/my-account/product')}}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -27,7 +27,7 @@
                         <label class="labels">Category</label>
                         <select name="cat_id" class="form-control @error('cat_id')
                         is-invalid @enderror" required>
-                            <option value="">Select Category</option>
+                            <option value="{{$product->cat_id}}"> {{$product->cat_id}} </option>
                             @foreach($category as $categories)
                             <option value="{{$categories->id}}"> {{$categories->category_title}} </option>
                             @endforeach
@@ -41,7 +41,7 @@
                         <label class="labels">Division</label>
                         <select name="division_id" class="form-control @error('division_id')
                                 is-invalid @enderror" required>
-                            <option value="">Select division</option>
+                            <option value="{{$product->division_id}}">{{$product->division_id}}</option>
                             @foreach($division as $divisions)
                             <option value="{{$divisions->id}}">{{$divisions->division_title}}</option>
                             @endforeach
@@ -56,7 +56,7 @@
                     <div class="col-md-6">
                         <label class="labels">Adress</label>
                         <input type="text" name="address" class="form-control @error('address')
-                                is-invalid @enderror" value="{{old('address')}}" placeholder="Address" required>
+                                is-invalid @enderror" value="{{$product->address}} " placeholder="Address" required>
                         @error('address')
                         <small class="form-text text-danger"> {{$message}} </small>
                         @enderror
@@ -64,7 +64,7 @@
                     <div class="col-md-6">
                         <label class="labels">Phone no</label>
                         <input type="text" name="phone_no" class="form-control @error('phone_no')
-                        is-invalid @enderror" value="{{old('phone_no')}}" placeholder="phone no" required>
+                        is-invalid @enderror" value="{{$product->phone_no}}" placeholder="phone no" required>
                         @error('phone_no')
                         <small class="form-text text-danger"> {{$message}} </small>
                         @enderror
@@ -75,7 +75,7 @@
                         <label class="labels">Condition</label>
                         <select name="condition" class="form-control @error('condition')
                         is-invalid @enderror" required>
-                          <option value="">Select condition</option>
+                          <option value="{{$product->condition}}">{{$product->condition}}</option>
                           <option value="Used">Used</option>
                           <option value="New">New</option>
                         </select>
@@ -90,7 +90,7 @@
                     <div class="col-md-12">
                         <label class="labels">Product title</label>
                         <input type="text" name="title" class="form-control @error('title')
-                        is-invalid @enderror" value="{{old('title')}}" placeholder="Product title" required>
+                        is-invalid @enderror" value="{{$product->title}}" placeholder="Product title" required>
                         @error('title')
                         <small class="form-text text-danger"> {{$message}} </small>
                         @enderror
@@ -98,7 +98,7 @@
                     <div class="col-md-12">
                         <label class="labels">Description</label>
                         <textarea name="description" rows="" class="form-control @error('description')
-                        is-invalid @enderror" cols="" required>{{old('description')}}</textarea> 
+                        is-invalid @enderror" cols="" required>{{$product->description}}</textarea> 
                         @error('description')
                         <small class="form-text text-danger"> {{$message}} </small>
                         @enderror
@@ -109,22 +109,23 @@
                     <div class="col-md-6">
                         <label class="labels">Price</label>
                     <input type="text" class="form-control @error('price')
-                        is-invalid @enderror" name="price" placeholder="Price" value="{{old('price')}}" required>
+                        is-invalid @enderror" name="price" placeholder="Price" value="{{$product->price}}" required>
                         @error('price')
                         <small class="form-text text-danger"> {{$message}} </small>
                         @enderror
                 </div>
 
                 </div>
-                <div class mt-3>
-                <div class="col-md-6">
-                  
+
+                <!-- <div class mt-3>
+                <div class="col-md-6">  
                   <div class="form-check form-check-inline"><br/>
                     <input class="form-check-input" type="checkbox" name="negotiable"  value="negotiable">
                     <label class="form-check-label " for="inlineRadio1">Negotiable</label>
                   </div>
-              </div>
-                </div>
+                 </div>
+                </div> -->
+
                 <hr/>
                 <div class="row mt-3">
                     <div class="col-md-3">
@@ -161,7 +162,7 @@
                 <br/><br/>
                 <div class="row m-2">
                     <div class="col-lg-6">
-                    <h5 class="font-weight-bold ">Contact details</h5><hr>
+                    <h5 class="font-weight-bold ">My details</h5><hr>
 
                                 <br>
                                 <label class="font-weight-bold text-primary">Name </label><br>

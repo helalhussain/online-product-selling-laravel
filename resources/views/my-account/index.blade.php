@@ -192,7 +192,7 @@
 							<th><span>Title</span></th>
 							<th><span>price</span></th>
 							<th class="text-center"><span>Status</span></th>
-							<th><span>Status</span></th>
+							<th><span>Action</span></th>
 							
 						</tr>
 					</thead>
@@ -216,24 +216,29 @@
 								<a href="#"></a>
 							</td>
 							<td style="width: 20%;">
-								<a href="#" class="table-link">
+								<a href="{{url('/my-account/product/'.$product->id)}}" class="table-link">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
 									</span>
 								</a>
-								<a href="#" class="table-link">
+								<a href="{{url('/my-account/product/'.$product->id.'/edit')}}" class="table-link">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 									</span>
 								</a>
-								<a href="#" class="table-link danger">
+								<form action="{{url('my-account/product/'.$product->id)}}" method="post">
+									@csrf 
+									@method('DELETE')
+								<button style="border:none;" type="submit"  class="table-link text-danger danger">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
 									</span>
-								</a>
+								</button>
+								
+								</form>
 							</td>
 						</tr>
 		@endforeach

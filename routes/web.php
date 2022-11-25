@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
@@ -8,6 +8,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\CategoryController;
+use App\Models\Category;
+use App\Models\Division;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +23,9 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $all_category = DB::table('categories')->get();
+    $all_division = DB::table('divisions')->get();
+    return view('welcome',compact('all_category','all_division'));
 });
 Route::get('/signin',[UserController::class,'signin_page'])->name('signin_page');
 Route::get('/signup',[UserController::class,'signup_Page'])->name('signup_page');
@@ -49,5 +54,6 @@ Route::get('/admin/login',[AdminAuthController::class,'admin_login_page']);
 
 //Admin user
 Route::get('/admin/all-user',[AdminUserController::class,'admin_user_page']);
+Route::get('/admin/all-user-status/{id}',[AdminUserController::class,'user_status_change']);
 
 
