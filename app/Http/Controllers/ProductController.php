@@ -120,7 +120,13 @@ class ProductController extends Controller
     }
     public function product_detail($id){
         $product_detail=Product::find($id);
-        return view('product_detail',compact('product_detail'));
+        $category_detail=Category::where('id','=',$product_detail->cat_id)->first();
+        $division_detail=Division::where('id','=',$product_detail->division_id)->first();
+        $similar_product = DB::table('products')->where('cat_id','=',$product_detail->cat_id)
+        ->where('division_id','=',$product_detail->division_id)
+        ->join('users','products.user_id','=','users.id')
+        ->select('products.*','users.*')->get();
+        return view('product_detail',compact('product_detail','category_detail','division_detail','similar_product'));
     }
 
     /**

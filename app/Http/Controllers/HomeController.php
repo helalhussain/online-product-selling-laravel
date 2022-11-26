@@ -42,6 +42,16 @@ class HomeController extends Controller
         return view('division',compact('categories','divisions','divisionProduct'));
      }
  
+    public function report(Request $report){
+      $user_id = Session::get('user_id');
+      $report = new report();
+      $report->user_id=$user_id;
+      $report->product_id=$request->product_id;
+      $report->reason = $report->reason;
+      $report->message = $request->message;
+      $report->save();
+      return redirect('product');
+    }
 
   
 }

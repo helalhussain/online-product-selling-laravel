@@ -28,11 +28,6 @@
 
                     <div class="row gy-2">
                         @foreach($products as $product)
-                         @php
-                   
-                       
-                        @endphp 
-            
                         <div class="col-lg-4">
                             <!--card start-->
                         <div class="card p-2 " style="">

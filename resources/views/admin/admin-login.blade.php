@@ -16,21 +16,35 @@
       <div class="cover"></div>
     </section>
     <section class="login-content">
-      <div class="logo">
-        <h1></h1>
-      </div>
-      <h1 class="text-center text-light"></h1>
+ 
+
       <div class="login-box">
-        <form class="login-form" method="POST">
-            @csrf
+        <form action="{{url('/admin/login')}}" class="login-form" method="POST">
+            @csrf 
+
           <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>LOG IN</h3>
+          @if(Session::has('success'))
+        <span class="text-danger">{{Session::get('success')}} </span>
+        @endif
+        @if(Session::has('fail'))
+        <span class="text-danger"> {{Session::get('fail')}} </span>
+      @endif 
           <div class="form-group">
             <label class="control-label">EMAIL</label>
-            <input type="email" class="form-control" name="admin_email"  placeholder="Email" autofocus>
+            <input type="email" class="form-control @error('admin_email') is-invalid @enderror" 
+            name="admin_email" value="{{old('admin_email')}}"  placeholder="Email" autofocus>
+            @error('admin_email')
+            <small class="form-text text-danger"> {{$message}} </small>
+            @enderror
           </div>
           <div class="form-group">
             <label class="control-label">PASSWORD</label>
-            <input type="password" class="form-control" name="admin_password"  placeholder="Password">
+            <input type="password" class="form-control @error('admin_password') is-invalid
+            @enderror" name="admin_password" 
+             placeholder="Password">
+            @error('admin_password')
+            <small class="form-text text-danger"> {{$message}} </small>
+            @enderror
           </div>
           <div class="form-group">
             <div class="utility">

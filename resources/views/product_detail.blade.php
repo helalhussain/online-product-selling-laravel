@@ -15,6 +15,85 @@
             <!---start-sidebar--->
             <ul class="list-group">
     <br/>
+
+<!--Model--->  
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+data-bs-whatever="@getbootstrap">Report this product</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Report</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Reason:</label>
+			<select class="form-control" name="reason" id="">
+                <option value="">Reason</option>
+                <option value="Duplicate">Duplicate</option>
+                <option value="Wrong category">Wrong category</option>
+                <option value="Fake">Fake</option>
+                <option value="Others">Others</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" name="message" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send Report</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--End model-->
+<div class="container">
+    	<div class="row mt-4">
+    		<div class="col">
+    			<div class="card">
+                        				<div  class="text-center mb-5"><button style="border-radius: 20px;" class="btn btn-danger text-white" data-toggle="modal" data-target="#bloodModal">Report this ad</button></div>
+                
+    				<div class="modal fade" id="bloodModal" tabindex="-1" role="dialog" aria-labelledby="bloodModalLabel" aria-hidden="true">
+	                  <div class="modal-dialog modal-lg" role="document">
+	                    <div class="modal-content">
+		                    <div class="modal-header">
+		                      <h4 class="modal-title text-danger font-weight-bold">Report This ad</h4>
+		                      <button class="close" data-dismiss="modal">&times;</button>
+		                    </div>
+			                 <form class="mt-4 col-lg-8 mx-auto" method="POST">
+                             <div class="form-group">
+			    					<label class="text-info font-weight-bold">Reason</label>
+			    					<select class="form-control" name="reason" id="">
+                                        <option value="">Reason</option>
+                                        <option value="Duplicate">Duplicate</option>
+                                        <option value="Wrong category">Wrong category</option>
+                                        <option value="Fake">Fake</option>
+                                    </select>
+			    				</div>
+			    				<div class="form-group">
+			    					<label class="text-info font-weight-bold">Message</label>
+			    					<textarea class="form-control" type="" id="reporttex" name="message" placeholder="Message" required></textarea>
+                                    <span class="report_error"style="color:red;font-size:14px;"> </span>
+                                </div>				
+			    				<button class="btn btn-danger my-2" name="report" id="reportbtn" type="submit">Send report</button><bt>
+			    			</form>
+
+	                	</div>
+	                 </div>
+                </div>
+</div>
+</div>
+</div>
+</div>
+<!--End model--->
             <h6 class="list-group-item list-group-item-action bg-success active" aria-current="true">All Categories</h6>
            
                 <a href="">
@@ -169,10 +248,13 @@
                         <div class="d-flex flex-row">	<i class='bx bxs-star' ></i>	<i class='bx bxs-star' ></i>	
                         <i class='bx bxs-star' ></i>	<i class='bx bxs-star' ></i>
                         	<i class='bx bx-star' ></i>	</div>	<span>441 reviews</span>
-                        	</div>	<div class="mt-5">	<span class="fw-bold">Color</span>	
-                            <div class="colors">	<ul id="marker">	<li id="marker-1"></li>
-                            	<li id="marker-2"></li>	<li id="marker-3"></li>	<li id="marker-4"></li>	
-                                <li id="marker-5"></li>	</ul>	</div>	</div>	
+                        	</div>	<div class="mt-5">	
+                                <span class="">Category <strong>{{$category_detail->category_title}}</strong></span>	
+                                <span class="">Division <strong>{{$division_detail->division_title}}</strong></span>	
+                            <div class="colors">	
+                                
+                            </div>	
+                        </div>	
                                 <div class="buttons d-flex flex-row mt-5 gap-3">	
                                     <button class="btn btn-outline-dark">Buy Now</button>	
                                     <button class="btn btn-dark">Add to Basket</button>	
@@ -191,7 +273,64 @@
                     </div>
                     <!---End row-->
                     </div>
-                    <h4 class="text-success">Similar product</h4><hr/><br/>
+                    <!--start similar_product--->
+                    <hr/>
+                    <div class="similar_product">
+                    <h4 class="text-success fw-bold">Similar product</h4><hr/><br/>
+                    <div class="row gy-2">
+                        @foreach($similar_product as $similar)
+                        <div class="col-lg-4">
+                            <!--card start-->
+                        <div class="card border-1 p-2 " style="border:1px solid black!important;">
+                        <!---Top start-->
+                        <div class="row Top ">
+                            <div class="col-lg-3">
+                       
+                            @if($similar->user_image==NULL)
+                            <img src="https://previews.123rf.com/images/imagevectors/imagevectors1605/imagevectors160500502/56499050-blanco-etiqueta-de-icono-de-perfil-en-el-papel-arrugado.jpg" alt="Profile" style="height:40px; border:1px solid black; width:40px;heigh:40px;border-radius:50%;">
+                            @else
+                            <img src="{{asset('/storage/'.$similar->user_image)}}" alt="Profile"
+                            style="height:40px; border:1px solid black; width:40px;heigh:40px;border-radius:50%;">
+                            @endif
+                            </div>
+                            <div class="col-lg-8" style="line-height: 0.5;">
+                                <h6 class="text-success f-5"><strong>{{ $similar->first_name}}</strong> 
+                                <strong>{{ $similar->last_name}}</strong></h6>
+                                <p class="card-text text-left" style="font-size:13px;"> {{$similar->created_at}} </p>
+                            </div>
+                        </div>
+                        <!--Top end-->
+
+                            <img src="{{asset('/storage/'.$similar->image_1)}}"
+                            class="pt-2" style="height:200px;" alt="">
+                            <div class="card-body">
+                                <h6 class="card-title f-5"> {{$similar->title}} </h6>
+                        <div class="cat pt-3" style="line-height: 0.4;">
+                        <p class="card-text text-primary font-weight-bold"
+                         style="text-transform: capitalize; font-size:16px;">
+                         {{ $similar->cat_id}} <span class="text-success"> {{ $similar->division_id}}</span></p>
+                                <p class="card-text font-weight-bold" style="text-transform: capitalize; font-size:16px;">
+                                 {{$similar->address}} </p>
+                        </div>
+                                 	
+                                <div class="row pt-3">
+									<div class="col-lg-8"><h6 class="card-text text-success
+                                     pt-1 pb-1">Tk {{$similar->price}} </h6>
+                                    </div>
+									<div class="col-lg-4">
+										<div class="text-right">
+							
+									<a class='btn btn-success' href="{{url('/product-detail/'.$similar->id)}}">View</a>										</div>
+									</div>
+								</div>
+                            </div>
+                            </div>
+                            <!--card end-->
+                        </div>
+                        @endforeach
+                    </div><br/>
+                    </div>
+                    <!--End Similar_product--->
                 </div>
                 <!------col-lg-9 end-->
             </div>

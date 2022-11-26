@@ -7,12 +7,12 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-envelope"></i>All User</h1>
+          <h1><i class="fa fa-envelope"></i>All Product</h1>
           
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-envelope fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#">user</a></li>
+          <li class="breadcrumb-item"><a href="#">product</a></li>
         </ul>
       </div>
 
@@ -24,7 +24,7 @@
  
                       <div class="row pt-3 pl-4 pr-4">
                         <div class="col-lg-3">
-                         <h3 class="text-white">Users</h3>
+                         <h3 class="text-white">Products</h3>
                         </div>
                         <div class="col-lg-3"></div>
                         <div class="col-lg-4">
@@ -32,7 +32,7 @@
                       <div>
                         <form action=""  class="input-group mb-3">
                      
-                        <input type="search" class="form-control" name="search" vlaue=" {{$search}} " placeholder="Search">
+                        <input type="search" class="form-control" name="search" vlaue=" " placeholder="Search">
                         <div class="input-group-append">
                           <button class="btn btn-dark" >Search</i></button>
                         </div>
@@ -52,25 +52,28 @@
                         <tr>
                             <th style="bg-light" scope="col">No</th>
                             <th style="bg-light" scope="col">User Name</th>
-                            <th style="bg-light" scope="col">Email</th>
-                            <th style="bg-light" scope="col">Division</th>
+                       
+                            <th style="bg-light" scope="col">Category</th>
+                            <th style="bg-light" scope="col">Title</th>
+                            <th style="bg-light" scope="col">Description</th>
                             <th style="bg-light" scope="col">Block</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($user as $users)
+                    @foreach($product as $products)
                         <tr class="">
-                            <td scope="row">{{$users->id}}</td>
-                            <td> {{$users->first_name}} {{$users->last_name}} </td>
-                            <td> {{$users->email}} </td>
-                            <td> {{$users->division}} </td>
-                            @if($users->status ==1)
-                            <td><a href="{{url('/admin/all-user-status/'.$users->id)}}"class="btn btn-danger">Block</a> </td>
+                            <td scope="row"> {{$products->id}} </td>
+                            <td> {{$products->first_name}} {{$products->last_name}} </td>
+                            <td> {{$products->category_title}} </td>
+                            <td> {{$products->title}} </td>
+                            <td> {{$products->description}} </td>
+                            @if($products->status ==1)
+                            <td><a href="{{url('/admin/all-product-status/'.$products->id)}}"class="btn btn-danger">Block</a> </td>
                             @else
-                            <td><a href="{{url('/admin/all-user-status/'.$users->id)}}" class="btn btn-light">Unblock</a> </td>
+                            <td><a href="{{url('/admin/all-product-status/'.$products->id)}}" class="btn btn-light">Unblock</a> </td>
                             @endif
                         </tr>
-                        @endforeach
+                       @endforeach
                     </tbody>
                 </table>
 

@@ -19,7 +19,7 @@ class Product extends Model
         'condition',
         'image'
     ];
-    public function user(){
-        return $this.belongsTo(Product::class);
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 }

@@ -15,7 +15,7 @@
         <li class="treeview"><a class="app-menu__item" href="{{url('admin/all-user')}}">
           <i class="app-menu__icon fa fa-send"></i><span class="app-menu__label">All User</span><i class="treeview-indicator fa fa-angle-right"></i></a></li>
 
-        <li class="treeview"><a class="app-menu__item" href="admin-replay.php" data-toggle="treeview"><i class="app-menu__icon fa fa-plus"></i><span class="app-menu__label">Compose Message</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="{{url('admin/all-product')}}" data-toggle="treeview"><i class="app-menu__icon fa fa-plus"></i><span class="app-menu__label">All product</span><i class="treeview-indicator fa fa-angle-right"></i></a>
 
         </li>
         <li class="treeview"><a class="app-menu__item" href="admin-undo.php" data-toggle="treeview"><i class="app-menu__icon fa fa-trash"></i><span class="app-menu__label"> Trash</span><i class="treeview-indicator fa fa-angle-right"></i></a>
