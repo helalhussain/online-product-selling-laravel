@@ -15,8 +15,15 @@
             <!---start-sidebar--->
             <ul class="list-group">
     <br/>
-
-<!--Model--->  
+    <!--Model---> 
+   
+    @if(Session::has('success'))
+        <span class="text-danger"> {{ Session::get('success')}} </span>
+        @endif
+        @if(Session::has('fail'))
+     <span class="text-danger"> {{ Session::get('fail')}} </span>
+ @endif 
+ 
 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" 
 data-bs-whatever="@getbootstrap">Report this product</button>
 
@@ -28,10 +35,11 @@ data-bs-whatever="@getbootstrap">Report this product</button>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+      <form action="{{url('/product')}}" method="POST">
+    @csrf
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Reason:</label>
-			<select class="form-control" name="reason" id="">
+			<select class="form-control" name="reason" required>
                 <option value="">Reason</option>
                 <option value="Duplicate">Duplicate</option>
                 <option value="Wrong category">Wrong category</option>
@@ -41,59 +49,23 @@ data-bs-whatever="@getbootstrap">Report this product</button>
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" name="message" id="message-text"></textarea>
+            <textarea class="form-control" name="message" id="message-text" required></textarea>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
+          <input type="hidden" value="{{$product_detail->id}}" name="product_id"/>
+          <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send Report</button>
+        <button type="submit" class="btn btn-primary">Send Report</button>
       </div>
+      </form>
+      </div>
+
     </div>
   </div>
 </div>
 
 
 <!--End model-->
-<div class="container">
-    	<div class="row mt-4">
-    		<div class="col">
-    			<div class="card">
-                        				<div  class="text-center mb-5"><button style="border-radius: 20px;" class="btn btn-danger text-white" data-toggle="modal" data-target="#bloodModal">Report this ad</button></div>
-                
-    				<div class="modal fade" id="bloodModal" tabindex="-1" role="dialog" aria-labelledby="bloodModalLabel" aria-hidden="true">
-	                  <div class="modal-dialog modal-lg" role="document">
-	                    <div class="modal-content">
-		                    <div class="modal-header">
-		                      <h4 class="modal-title text-danger font-weight-bold">Report This ad</h4>
-		                      <button class="close" data-dismiss="modal">&times;</button>
-		                    </div>
-			                 <form class="mt-4 col-lg-8 mx-auto" method="POST">
-                             <div class="form-group">
-			    					<label class="text-info font-weight-bold">Reason</label>
-			    					<select class="form-control" name="reason" id="">
-                                        <option value="">Reason</option>
-                                        <option value="Duplicate">Duplicate</option>
-                                        <option value="Wrong category">Wrong category</option>
-                                        <option value="Fake">Fake</option>
-                                    </select>
-			    				</div>
-			    				<div class="form-group">
-			    					<label class="text-info font-weight-bold">Message</label>
-			    					<textarea class="form-control" type="" id="reporttex" name="message" placeholder="Message" required></textarea>
-                                    <span class="report_error"style="color:red;font-size:14px;"> </span>
-                                </div>				
-			    				<button class="btn btn-danger my-2" name="report" id="reportbtn" type="submit">Send report</button><bt>
-			    			</form>
-
-	                	</div>
-	                 </div>
-                </div>
-</div>
-</div>
-</div>
-</div>
-<!--End model--->
+<br/>
             <h6 class="list-group-item list-group-item-action bg-success active" aria-current="true">All Categories</h6>
            
                 <a href="">
@@ -238,6 +210,7 @@ data-bs-whatever="@getbootstrap">Report this product</button>
                             </div>	
                         </div>	
                     </div>	
+                    
                     <div class="col-md-6">
                         <div class="p-3 right-side">	
                             <div class="d-flex justify-content-between align-items-center">	

@@ -9,13 +9,20 @@
             <br/>
                     <h6 class="list-group-item list-group-item-action bg-success active" aria-current="true">All Categories</h6>
                     @foreach($categories as $show_categories)
-                        <a href="{{url('/category/'.$show_categories->id)}}">
+                        <a href="{{url('/category/'.$show_categories->id)}}" class="">
                         <li class="list-group-item d-flex font-weight-bold align-items-center">
                         <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                         {{$show_categories->category_title}}
                         </li>
                         </a>
                         @endforeach
+                        <ul class="list-group">
+                        @foreach($categories as $show_categories)
+                        <a href="{{url('/category/'.$show_categories->id)}}" class="list-group-item 
+                        {{Request::is('/category/'.$show_categories->id)
+                             ? 'active':''}}" aria-current="true"> {{$show_categories->category_title}}</a>
+                        @endforeach
+                    </ul>
                         <!-- <a href="electronics.php">
                         <li class="list-group-item text d-flex font-weight-bold align-items-center">
                         <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
@@ -65,12 +72,11 @@
                     <h6 class="list-group-item list-group-item-action bg-success active">All of Bangladesh</h6>
                     @foreach($divisions as $show_divisions)
                     <a href="{{url('/division/'.$show_divisions->id)}}">
-                
                         <li class="list-group-item d-flex font-weight-bold align-items-center">
                         <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                         {{$show_divisions->division_title}}
                         </li>
-                        </a>
+                    </a>
                     @endforeach
                         <!-- <a href="chattogram.php">
                         <li class="list-group-item d-flex font-weight-bold align-items-center">

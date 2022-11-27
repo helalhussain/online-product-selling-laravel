@@ -106,6 +106,12 @@ class UserController extends Controller
         return redirect('my-account/profile');
 
     }
+    public function edit_password_page(){
+        return view('my-account.change_password');
+    }
+    public function edit_password(Request $request){
+        
+    }
 
 
 }

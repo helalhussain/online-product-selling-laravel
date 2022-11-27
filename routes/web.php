@@ -39,6 +39,7 @@ Route::get('/my-account/edit-profile',[UserController::class,'edit_profile'])->m
 Route::post('/my-account/edit-profile',[UserController::class,'edit_profile_info']);
 Route::get('/my-account/edit-profile-image',[UserController::class,'edit_profile_image']);
 Route::post('/my-account/edit-profile-image',[UserController::class,'edited_profile_image']);
+Route::get('/my-account/edit-password',[UserController::class,'edit_password_page']);
 // Route::resource('/product',ProductController::class);
 Route::resource('/my-account/product',ProductController::class)->middleware('isLoggedIn');
 Route::get('/product-detail/{id}',[ProductController::class,'product_detail'])->name('product_detail_page');
