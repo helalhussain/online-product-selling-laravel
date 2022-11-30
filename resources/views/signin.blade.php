@@ -20,7 +20,7 @@
                 <label for="basic-url" class="form-label">Email</label>
                     <div class="input-group ">
                       <span class="input-group-text " id="basic-addon1">@</span>
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}"
+                        <input type="email" value="{{old('email')}}" class="form-control @error('email') is-invalid @enderror"
                          name="email" placeholder="Email"><br/>
                         
                     </div>

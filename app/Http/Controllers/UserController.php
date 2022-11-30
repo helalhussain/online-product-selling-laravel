@@ -52,6 +52,7 @@ class UserController extends Controller
 
         $result = User::where('email','=',$request->email)->first();
         if($result){
+         if($result->status==1){
             if(Hash::check($request->password,$result->password)){
                 Session::put('user_id',$result->id);
                 Session::put('first_name',$result->first_name);
@@ -60,6 +61,9 @@ class UserController extends Controller
             }else{
                 return redirect()->back()->with('fail','Wrong password!');
             }
+         }else{
+            return redirect()->back()->with('fail','Your Account is blocked please contact us');
+         }
 
         }
         else{
@@ -110,6 +114,20 @@ class UserController extends Controller
         return view('my-account.change_password');
     }
     public function edit_password(Request $request){
+
+        $request->validate([
+            'old_password'=>'required',
+            'new_password'=>'required',
+            'confirm_passwrod'=>'required'
+        ]);
+
+        $user_id = Session::get('user_id');
+        $user = User::where('id',$user_id)->first();
+        if($request->password == $user->password){
+            return redirect()->back()->with('success','Success!');
+        }else{
+            return redirect()->back()->with('fail','Wrong password please try againg!');
+        }
         
     }
 

@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AdminReportController;
 use App\Models\Category;
 use App\Models\Division;
 
@@ -40,6 +41,7 @@ Route::post('/my-account/edit-profile',[UserController::class,'edit_profile_info
 Route::get('/my-account/edit-profile-image',[UserController::class,'edit_profile_image']);
 Route::post('/my-account/edit-profile-image',[UserController::class,'edited_profile_image']);
 Route::get('/my-account/edit-password',[UserController::class,'edit_password_page']);
+Route::post('/my-account/edit-password',[UserController::class,'edit_password']);
 // Route::resource('/product',ProductController::class);
 Route::resource('/my-account/product',ProductController::class)->middleware('isLoggedIn');
 Route::get('/product-detail/{id}',[ProductController::class,'product_detail'])->name('product_detail_page');
@@ -56,9 +58,11 @@ Route::get('/division/{id}',[HomeController::class,'view_division_product']);
 Route::get('/admin/admin',[AdminAuthController::class,'admin']);
 Route::get('/admin/login',[AdminAuthController::class,'admin_login_page']);
 Route::post('/admin/login',[AdminAuthController::class,'admin_login']);
+Route::get('/admin/logout',[AdminAuthController::class,'admin_logout']);
 //Admin user
 Route::get('/admin/all-user',[AdminUserController::class,'admin_user_page']);
 Route::get('/admin/all-user-status/{id}',[AdminUserController::class,'user_status_change']);
 Route::get('/admin/all-product',[AdminProductController::class,'admin_product_page']);
+Route::get('/admin/all-report',[AdminReportController::class,'admin_report_page']);
 
 

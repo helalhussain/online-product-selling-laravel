@@ -16,8 +16,8 @@
                 <!----col-lg-9 start--->
                 <div class="col-lg-9">
                     <div class="allProduct pt-4">
-                    <h5 class="" style="font-size:14px;color:black"><a href="">Home</a> 
-                    / <a href="">All ads in Bangladesh</a></h5>
+                    <h5 class="" style="font-size:14px;color:black"><a href="{{url('/')}}">Home</a> 
+                    / <a href="{{url('product')}}">All products in Bangladesh</a></h5>
                 <h5 class="font-weight-bold text-success">All ads in Bangladesh</h5><hr><br>
 
                     <div class="row gy-4">

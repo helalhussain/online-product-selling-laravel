@@ -1,4 +1,4 @@
-<ul class="list-group">
+<!-- <ul class="list-group">
  <a href="{{url('my-account/profile')}}" class="fw-bold active" style="text-decoration:none;">
  <li class="list-group-item d-flex justify-content-between align-items-cente activer">
     My profile
@@ -24,7 +24,7 @@
   </li>
  </a>
 
-</ul>
+</ul> -->
 
 <ul class="list-group">
   <a href="{{url('my-account/profile')}}" class="list-group-item {{Request::is('my-account/profile') ? 'active':''}}" aria-current="true">My Profile</a>

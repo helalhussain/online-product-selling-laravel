@@ -18,14 +18,14 @@ class AdminAuthController extends Controller
     }
     public function admin_login(Request $request){
         $request->validate([
-            'admin_email' => 'required | email',
-            'admin_password' => 'required',
+            'email' => 'required',
+            'password' => 'required',
         ]);
 
-        $admin_result = Admin::where('email','=',$request->admin_email)->first();
+        $admin_result = Admin::where('email','=',$request->email)->first();
         
         if($admin_result){
-            if(Hash::check($request->admin_password,$admin_result->password)){
+            if(Hash::check($request->password,$admin_result->password)){
                 Session::put('admin_id',$admin_result->id);
                 Session::put('admin_email',$admin_result->email);
                 Session::put('admin_name',$admin_result->admin_name);
@@ -38,5 +38,14 @@ class AdminAuthController extends Controller
         else{
             return redirect()->back()->with('success','Email or password wrong!');
         }
+       
+    }
+
+    public function admin_logout(){
+        
+        Session::flush();
+        return redirect('admin/login');
+       
+    
     }
 }

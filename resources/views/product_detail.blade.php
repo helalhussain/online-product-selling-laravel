@@ -15,6 +15,11 @@
             <!---start-sidebar--->
             <ul class="list-group">
     <br/>
+@php 
+$user_id = Session::get('user_id');
+@endphp
+
+@if($user_id != '')
     <!--Model---> 
    
     @if(Session::has('success'))
@@ -62,140 +67,32 @@ data-bs-whatever="@getbootstrap">Report this product</button>
     </div>
   </div>
 </div>
-
+@else
+@endif
 
 <!--End model-->
+
 <br/>
-            <h6 class="list-group-item list-group-item-action bg-success active" aria-current="true">All Categories</h6>
-           
-                <a href="">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                Mobile
-                </li>
-                </a>
-               
-                 <a href="electronics.php">
-                <li class="list-group-item text d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                    Electronics
-                </li>
-                </a>
-                <a href="vehicles.php">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                vehicles
-                </li>
-                </a>
-                <a href="property.php">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                    Property
-                </li>
-                </a>
-                <a href="animals.php">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                Pets & Animals
-                </li>
-                </a>
-                <a href="sports.php">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                Hobbies & Sports
-                </li>
-                </a>
-                <a href="fashion.php">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                Fashion & Beauty
-                </li>
-                </a>
-                <a href="living.php">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                Home & Living
-                </li>
-                </a> 
-            </ul>
-            <br>
+    
+</ul>
+
             <!---------------------------area------------------->
-            <ul class="list-group">
-            <h6 class="list-group-item list-group-item-action bg-success active">All of Bangladesh</h6>
-           
-            <a href="">
-        
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                Dhaka
-                </li>
-                </a>
-           
-                 <a href="chattogram.php">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                Chattogram
-                </li>
-                </a>
-                <a href="sylhet.php">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                Sylhet
-                </li>
-                </a>
-                <a href="khulna.php">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right"></i> </span>
-                Khulna
-                </li>
-                </a>
-                <a href="#">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                Borishal
-                </li>
-                </a>
-                <a href="#">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                Rangpur
-                </li>
-                </a>
-                <a href="rajshahi.php">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                Rajshahi
-                </li>
-                </a>
-                <a href="mymenshingh.php">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                Mymenshingh
-                </li>
-                </a>
-                </a>
-                <a href="comilla.php">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
-                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
-                Comilla
-                </li>
-                </a> 
-            </ul>
+
             <!--end sidebar--->
                 </div>
 
                 <!----col-lg-9 start--->
                 <div class="col-lg-9">
                     <div class="allProduct pt-4">
-                    <h5 class="" style="font-size:14px;color:black"><a href="">Home</a> 
-                    / <a href="">All ads in Bangladesh</a></h5>
+                    <h5 class="" style="font-size:14px;color:black"><a href="{{url('/')}}">Home</a> 
+                    / <a href="{{url('product')}}">All products in Bangladesh</a></h5>
                 <h5 class="font-weight-bold text-success">All ads in Bangladesh</h5><hr><br>
 
                     <div class="row gy-2">
-                    <div class="container mt-5 mb-5">
-                        <div class="card">
-                           <div class="row g-0">
-                            <div class="col-md-6 border-end">
+                    <div class="container mt-2 mb-3">
+                        <div class="card bg-light">
+                           <div class="row g-0 ">
+                            <div class="col-md-6 pt-5 border-end">
                               <div class="d-flex flex-column justify-content-center">	
                                 <div class="main_image">	
                                     <img src="{{asset('/storage/'.$product_detail->image_1)}}" id="main_product_image" width="350">	
@@ -214,30 +111,61 @@ data-bs-whatever="@getbootstrap">Report this product</button>
                     <div class="col-md-6">
                         <div class="p-3 right-side">	
                             <div class="d-flex justify-content-between align-items-center">	
-                                <h3>{{$product_detail->title}}</h3>	<span class="heart"><i class='bx bx-heart'></i>
-                            </span>	</div>	<div class="mt-2 pr-3 content">	<p>
+                                <h3>{{$product_detail->title}}</h3>		</div>	<div class="mt-2 pr-3 content">	<p>
                                 <strong>Description : </strong>{{$product_detail->description}}</p>	
                         </div>	<h3>${{$product_detail->price}}</h3>	<div class="ratings d-flex flex-row align-items-center">	
                         <div class="d-flex flex-row">	<i class='bx bxs-star' ></i>	<i class='bx bxs-star' ></i>	
                         <i class='bx bxs-star' ></i>	<i class='bx bxs-star' ></i>
-                        	<i class='bx bx-star' ></i>	</div>	<span>441 reviews</span>
+                        	<i class='bx bx-star' ></i>	</div>	<span></span>
                         	</div>	<div class="mt-5">	
-                                <span class="">Category <strong>{{$category_detail->category_title}}</strong></span>	
-                                <span class="">Division <strong>{{$division_detail->division_title}}</strong></span>	
+
+                              <div class="table-responsive">
+                                    <table class="table table">
+                                        <thead>
+                                           <th></th>
+                                           <th></th>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="">
+                                                <td class="fw-bold" scope="row">Category</td>
+                                                <td scope="row">{{$category_detail->category_title}}</td>
+                                          
+                                         </tr>
+                                            <tr class="">
+                                               <td class="fw-bold">Division</td>
+                                                <td>{{$division_detail->division_title}}</td>
+                            
+                                            </tr>
+                                            <tr class="">
+                                                <td class="fw-bold">Conditiion</td>
+                                                <td>{{$product_detail->condition}}</td>
+                                            </tr>
+                                            <tr class="">
+                                                <td class="fw-bold">Contact</td>
+                                                <td>{{$product_detail->phone_no}}</td>
+                                            </tr>
+                                            <tr class="">
+                                                <td class="fw-bold">Address</td>
+                                                <td>{{$product_detail->address}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                	
                             <div class="colors">	
                                 
                             </div>	
                         </div>	
                                 <div class="buttons d-flex flex-row mt-5 gap-3">	
-                                    <button class="btn btn-outline-dark">Buy Now</button>	
-                                    <button class="btn btn-dark">Add to Basket</button>	
+                                    <!-- <button class="btn btn-outline-dark">Buy Now</button>	
+                                    <button class="btn btn-dark">Add to Basket</button>	 -->
                                 </div>	
-                                <div class="search-option">	
-                                    <i class='bx bx-search-alt-2 first-search'></i>	<div class="inputs">	
+                                    <!-- <div class="search-option">	
+                                        <i class='bx bx-search-alt-2 first-search'></i>	<div class="inputs">	
                                         <input type="text" name="">	</div>	<i class='bx bx-share-alt share'></i>
                                     	</div>
-                                    	
-                                    </div>	
+                                    </div>	 -->
                                 </div>	
                             </div>	
                         </div> 
@@ -249,7 +177,7 @@ data-bs-whatever="@getbootstrap">Report this product</button>
                     <!--start similar_product--->
                     <hr/>
                     <div class="similar_product">
-                    <h4 class="text-success fw-bold">Similar product</h4><hr/><br/>
+                    <h4 class="text-success fw-bold">Similar product</h4><br/>
                     <div class="row gy-2">
                         @foreach($similar_product as $similar)
                         <div class="col-lg-4">

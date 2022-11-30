@@ -22,8 +22,8 @@
                 <!----col-lg-9 start--->
                 <div class="col-lg-9">
                     <div class="allProduct pt-4">
-                    <h5 class="" style="font-size:14px;color:black"><a href="">Home</a> 
-                    / <a href="">All ads in Bangladesh</a></h5>
+                    <h5 class="" style="font-size:14px;color:black"><a href="{{url('/')}}">Home</a> 
+                    / <a href="{{url('product')}}">All products in Bangladesh</a></h5>
                 <h5 class="font-weight-bold text-success">All ads in Bangladesh</h5><hr><br>
 
                     <div class="row gy-2">
@@ -58,7 +58,7 @@
                         <div class="cat pt-3" style="line-height: 0.4;">
                         <p class="card-text text-primary font-weight-bold"
                          style="text-transform: capitalize; font-size:16px;">
-                         {{ $product->category_title}} <span class="text-success"> {{ $product->division_id}}</span></p>
+                         {{ $product->category_title}} <span class="text-success"> {{ $product->division_title}}</span></p>
                                 <p class="card-text font-weight-bold" style="text-transform: capitalize; font-size:16px;">
                                  {{$product->address}} </p>
                         </div>

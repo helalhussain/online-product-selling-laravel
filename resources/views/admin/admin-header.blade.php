@@ -6,7 +6,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- Title -->
-      <title>Online kenabecha</title>
+      <title>Online Product</title>
 
       <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
       <!-- Font Google -->
@@ -14,14 +14,17 @@
       <!-- Bootstrap Css -->
       <link href="assets/css/bootstrap.min.css" rel="stylesheet">
       <!-- Font Awesome Css -->
-      <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+      <link href="{{asset('admin/assets/css/font-awesome.min.css')}}" rel="stylesheet">
       <!-- Magnific Popup Css -->
-      <link href="assets/css/magnific-popup.css" rel="stylesheet">
+      <link href="{{asset('admin/assets/css/magnific-popup.css')}}" rel="stylesheet">
       <!-- Owl Carousel Css -->
-      <link href="assets/css/owl.carousel.css" rel="stylesheet">
+      <link href="{{asset('admin/assets/css/owl.carousel.css')}}" rel="stylesheet">
       <!-- Main Css -->
-      <link href="assets/css/style.css" rel="stylesheet">
+      <link href="{{asset('admin/assets/css/style.css')}}" rel="stylesheet">
       <!-- Responsive Css -->
+      <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
       <link href="assets/css/responsive.css" rel="stylesheet">
       <link href="assets/css/ok-admin.css" rel="stylesheet">
       <style type="text/css">
@@ -86,7 +89,7 @@
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
             <li><a class="dropdown-item" href="admin-setting.php"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
 
-            <li><a class="dropdown-item" href="admin-logout.php"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+            <li><a class="dropdown-item" href="{{url('/admin/logout')}}"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
           </ul>
         </li>
       </ul>

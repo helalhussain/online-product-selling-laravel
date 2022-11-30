@@ -25,9 +25,10 @@
       <!-- Responsive Css -->
       <link href="{{asset('admin/assets/css/responsive.css')}}" rel="stylesheet">
       <link href="{{asset('admin/assets/css/ok-admin.css')}}" rel="stylesheet">
-      <style type="text/css">
-       
+      <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+     <style type="text/css">
       </style>
 
    </head>
@@ -87,7 +88,8 @@
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
             <li><a class="dropdown-item" href="admin-setting.php"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
 
-            <li><a class="dropdown-item" href="admin-logout.php"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+            <li><a class="dropdown-item" href="{{url('/admin/logout')}}"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+          
           </ul>
         </li>
       </ul>

@@ -7,12 +7,12 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fas fa-ad"> </i> All Product</h1>
+          <h1><i class="fa fa-user"></i> All Report</h1>
           
         </div>
         <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fas fa-ad fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#">product</a></li>
+          <li class="breadcrumb-item"><i class="fa fa-user fa-lg"></i></li>
+          <li class="breadcrumb-item"><a href="#">report</a></li>
         </ul>
       </div>
 
@@ -24,7 +24,7 @@
  
                       <div class="row pt-3 pl-4 pr-4">
                         <div class="col-lg-3">
-                         <h3 class="text-white">Products</h3>
+                         <h3 class="text-white"> Report</h3>
                         </div>
                         <div class="col-lg-3"></div>
                         <div class="col-lg-4">
@@ -32,7 +32,7 @@
                       <div>
                         <form action=""  class="input-group mb-3">
                      
-                        <input type="search" class="form-control" name="search" vlaue=" " placeholder="Search">
+                        <input type="search" class="form-control" name="search" vlaue="  " placeholder="Search">
                         <div class="input-group-append">
                           <button class="btn btn-dark" >Search</i></button>
                         </div>
@@ -51,29 +51,31 @@
                     <thead>
                         <tr>
                             <th style="bg-light" scope="col">No</th>
-                            <th style="bg-light" scope="col">User Name</th>
-                       
-                            <th style="bg-light" scope="col">Category</th>
+                            <th style="bg-light" scope="col">User name</th>
+                            <th style="bg-light" scope="col">Product image</th>
                             <th style="bg-light" scope="col">Title</th>
-                            <th style="bg-light" scope="col">Description</th>
-                            <th style="bg-light" scope="col">Block</th>
+                            <th style="bg-light" scope="col">Reson</th>
+                            <th style="bg-light" scope="col">Message</th>
+                            
+                         
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($product as $products)
-                        <tr class="">
-                            <td scope="row"> {{$products->id}} </td>
-                            <td> {{$products->first_name}} {{$products->last_name}} </td>
-                            <td> {{$products->category_title}} </td>
-                            <td> {{$products->title}} </td>
-                            <td> {{$products->description}} </td>
-                            @if($products->status ==1)
-                            <td><a href="{{url('/admin/all-product-status/'.$products->id)}}"class="btn btn-danger">Block</a> </td>
-                            @else
-                            <td><a href="{{url('/admin/all-product-status/'.$products->id)}}" class="btn btn-light">Unblock</a> </td>
-                            @endif
-                        </tr>
-                       @endforeach
+                        
+                    @foreach($report as $key=>$reports)
+                    <tr class="">
+                        <td scope="row">{{ $key+1 }}</td>
+                        <td scope="row">{{$reports->first_name }} {{ $reports->last_name}}</td>
+                        <td scope="row">
+                            <img src="{asset('/storage/'.$reports->image_1)}}" style="width:100px;"/>
+                        </td>
+                        <td scope="row">{{$reports->title}}</td>
+                        <td scope="row">{{$reports->reason}}</td>
+                        <td scope="row">{{$reports->message}}</td>
+                    </tr>
+
+                    @endforeach
+                        
                     </tbody>
                 </table>
 

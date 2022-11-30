@@ -7,11 +7,11 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-envelope"></i>All User</h1>
+          <h1><i class="fa fa-user"></i> All User</h1>
           
         </div>
         <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-envelope fa-lg"></i></li>
+          <li class="breadcrumb-item"><i class="fa fa-user fa-lg"></i></li>
           <li class="breadcrumb-item"><a href="#">user</a></li>
         </ul>
       </div>
@@ -24,7 +24,7 @@
  
                       <div class="row pt-3 pl-4 pr-4">
                         <div class="col-lg-3">
-                         <h3 class="text-white">Users</h3>
+                         <h3 class="text-white"> Users</h3>
                         </div>
                         <div class="col-lg-3"></div>
                         <div class="col-lg-4">

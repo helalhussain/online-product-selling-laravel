@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-white bg-white ">
       <div class="container py-2">
-        <a class="navbar-brand fw-bold" href="{{url('/')}}">Online Product</a>
+        <a class="navbar-brand text-success fw-bold" href="{{url('/')}}">Online Product</a>
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

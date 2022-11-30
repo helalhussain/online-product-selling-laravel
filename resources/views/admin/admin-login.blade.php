@@ -23,16 +23,16 @@
             @csrf 
 
           <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>LOG IN</h3>
-          @if(Session::has('success'))
-        <span class="text-danger">{{Session::get('success')}} </span>
-        @endif
-        @if(Session::has('fail'))
-        <span class="text-danger"> {{Session::get('fail')}} </span>
-      @endif 
+              @if(Session::has('success'))
+              <span class="text-danger">{{Session::get('success')}} </span>
+              @endif
+              @if(Session::has('fail'))
+              <span class="text-danger"> {{Session::get('fail')}} </span>
+              @endif 
           <div class="form-group">
             <label class="control-label">EMAIL</label>
             <input type="email" class="form-control @error('admin_email') is-invalid @enderror" 
-            name="admin_email" value="{{old('admin_email')}}"  placeholder="Email" autofocus>
+            name="email" value="{{old('admin_email')}}"  placeholder="Email" autofocus>
             @error('admin_email')
             <small class="form-text text-danger"> {{$message}} </small>
             @enderror
@@ -40,7 +40,7 @@
           <div class="form-group">
             <label class="control-label">PASSWORD</label>
             <input type="password" class="form-control @error('admin_password') is-invalid
-            @enderror" name="admin_password" 
+            @enderror" name="password" 
              placeholder="Password">
             @error('admin_password')
             <small class="form-text text-danger"> {{$message}} </small>

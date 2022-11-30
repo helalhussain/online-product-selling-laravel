@@ -17,8 +17,9 @@
                 @php
                 $user_id = Session::get('user_id');
             @endphp
-                <form action="{{url('/my-account/edit-profile-image')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{url('/my-account/edit-password')}}" method="POST">
                     @csrf
+                   
                     @if(Session::has('success'))
                         <span class="text-danger"> {{Session::get('success')}} </span>
                         @endif
@@ -31,21 +32,32 @@
                     <div class="row mt-2">
                     <div class="col-md-12">
                         <label class="labels">Old password</label>
-                        <input type="password" name="old_password"class="form-control"  placeholder="Old Password
+                        <input type="password" name="old_password" 
+                        class="form-control @error('old_password') is-invalid @enderror" 
+                         placeholder="Old Password"
                         required>
-                        <small class="form-text text-danger">  </small>                 
+                        @error('old_password')
+                        <small class="form-text text-danger"> {{$message}} </small>  
+                        @enderror               
                     </div>
                     <div class="col-md-12">
                         <label class="labels">New password</label>
-                        <input type="password" name="new_password"class="form-control" placeholder="New Password 
+                        <input type="password" name="new_password"class="form-control 
+                        @error('new_password') is-invalid @enderror"placeholder="New Password"
                         required>
-                        <small class="form-text text-danger">  </small>                 
+                        @error('new_password')
+                        <small class="form-text text-danger"> {{$message}} </small>  
+                        @enderror                 
                     </div>
                     <div class="col-md-12">
                         <label class="labels">confirm password</label>
-                        <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password 
+                        <input type="password" name="confirm_password" class="form-control 
+                        @error('confimr_password') is-invalid @enderror"
+                         placeholder="Confirm Password" 
                         required>
-                        <small class="form-text text-danger">  </small>                 
+                        @error('confirm_password')
+                        <small class="form-text text-danger"> {{$message}} </small>  
+                        @enderror                 
                     </div>
                     
          
