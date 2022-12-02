@@ -17,7 +17,7 @@ class AdminSeeder extends Seeder
     public function run()
     {
         $admins =[
-            ['admin_name'=>'Admin','email'=>'admin@gamil.com',
+            ['admin_name'=>'Online Product','email'=>'admin@gmail.com',
             'password'=>Hash::make(12345)],
         ];
         Admin::insert($admins);

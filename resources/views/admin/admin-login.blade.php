@@ -31,18 +31,18 @@
               @endif 
           <div class="form-group">
             <label class="control-label">EMAIL</label>
-            <input type="email" class="form-control @error('admin_email') is-invalid @enderror" 
+            <input type="email" class="form-control @error('email') is-invalid @enderror" 
             name="email" value="{{old('admin_email')}}"  placeholder="Email" autofocus>
-            @error('admin_email')
+            @error('email')
             <small class="form-text text-danger"> {{$message}} </small>
             @enderror
           </div>
           <div class="form-group">
             <label class="control-label">PASSWORD</label>
-            <input type="password" class="form-control @error('admin_password') is-invalid
+            <input type="password" class="form-control @error('password') is-invalid
             @enderror" name="password" 
              placeholder="Password">
-            @error('admin_password')
+            @error('password')
             <small class="form-text text-danger"> {{$message}} </small>
             @enderror
           </div>

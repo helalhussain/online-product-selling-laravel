@@ -72,7 +72,7 @@ class UserController extends Controller
     }
 
     public function logout(){
-        Session::flush();
+        Session::forget('user_id');
         return redirect('signin');
     }
 

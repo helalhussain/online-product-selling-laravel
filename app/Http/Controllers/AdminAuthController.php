@@ -43,7 +43,7 @@ class AdminAuthController extends Controller
 
     public function admin_logout(){
         
-        Session::flush();
+        Session::forget(['admin_id','admin_name','admin_email']);
         return redirect('admin/login');
        
     

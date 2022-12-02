@@ -55,14 +55,14 @@ Route::get('/category/{id}',[HomeController::class,'view_category_product']);
 Route::get('/division/{id}',[HomeController::class,'view_division_product']);
 
 //Admin
-Route::get('/admin/admin',[AdminAuthController::class,'admin']);
+Route::get('/admin/admin',[AdminAuthController::class,'admin'])->middleware('isAdmin');
 Route::get('/admin/login',[AdminAuthController::class,'admin_login_page']);
 Route::post('/admin/login',[AdminAuthController::class,'admin_login']);
 Route::get('/admin/logout',[AdminAuthController::class,'admin_logout']);
 //Admin user
-Route::get('/admin/all-user',[AdminUserController::class,'admin_user_page']);
+Route::get('/admin/all-user',[AdminUserController::class,'admin_user_page'])->middleware('isAdmin');
 Route::get('/admin/all-user-status/{id}',[AdminUserController::class,'user_status_change']);
-Route::get('/admin/all-product',[AdminProductController::class,'admin_product_page']);
-Route::get('/admin/all-report',[AdminReportController::class,'admin_report_page']);
+Route::get('/admin/all-product',[AdminProductController::class,'admin_product_page'])->middleware('isAdmin');
+Route::get('/admin/all-report',[AdminReportController::class,'admin_report_page'])->middleware('isAdmin');
 
 

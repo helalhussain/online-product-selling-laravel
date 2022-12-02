@@ -1,7 +1,10 @@
 @extends('admin.admin_master')
 @section('admin_content')
 <!--------------------sidebar------------------------>
+@php 
+  $admin_name = Session::get('admin_name')
 
+@endphp
 @include('admin.admin-sidebar')
     <!---------------sidebar-end----------------->
     <main class="app-content">
@@ -46,7 +49,7 @@
 <div class="card text-center pt-5">
 <i class="fa fa-user" style="font-size:50px"> </i>
   <div class="card-body">
-    <h4 class="card-title">Admin</h4>
+    <h4 class="card-title"> {{$admin_name}} </h4>
     <h6 class="card-text">admin@gmail.com</h6>
   </div>
 </div>

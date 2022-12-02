@@ -5,9 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Session;
-Session_start();
-
-class AuthCheck
+class AdminAuthCheck
 {
     /**
      * Handle an incoming request.
@@ -18,11 +16,9 @@ class AuthCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        $user_id = Session::get('user_id');
-        if(!Session()->has('user_id')){
-            return redirect('signin')->with('fail','Please login first');
+        if(!Session()->has('admin_id')){
+            return redirect('admin/login')->with('fail','Please login first');
         }
- 
         return $next($request);
     }
 }
