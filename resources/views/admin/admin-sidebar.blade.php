@@ -21,8 +21,8 @@
         <li class="treeview">
           <a class="app-menu__item {{Request::is('admin/all-report') ? 'active':''}}" href="{{url('admin/all-report')}}" data-toggle="treeview"><i class="app-menu__icon fa fa-plus"></i><span class="app-menu__label">All report</span><i class="treeview-indicator fa fa-angle-right"></i></a>
         </li>
-        <li class="treeview"><a class="app-menu__item" href="admin-setting.php" data-toggle="treeview"><i class="app-menu__icon fa fa-cog fa-lg"></i><span class="app-menu__label">Settings</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-        </li>
+        <!-- <li class="treeview"><a class="app-menu__item" href="admin-setting.php" data-toggle="treeview"><i class="app-menu__icon fa fa-cog fa-lg"></i><span class="app-menu__label">Settings</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        </li> -->
 
 
       </ul>

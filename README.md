@@ -1,13 +1,17 @@
 
 
 
-Paste inside root directory/ where you install xampp local disk C: paste: for xampp/htdocs,
+
 
 Open your XAMPP and start Apache & MySQL
 
 Open PHPMyAdmin http://localhost/phpmyadmin
 
 Create a database: old_product
+
+Go to inside root directory/ where you install xampp local disk C: for xampp/htdocs
+
+directory path: C:\xampp\htdocs
 
 git clone https://github.com/helalhussain/online-product-selling-laravel.git
 

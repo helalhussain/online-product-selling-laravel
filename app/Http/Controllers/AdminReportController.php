@@ -17,4 +17,7 @@ class AdminReportController extends Controller
         ->join('users','reports.user_id','=','users.id')->get();
         return view('admin.all-report',compact('report'));
     }
+
+    
+    
 }

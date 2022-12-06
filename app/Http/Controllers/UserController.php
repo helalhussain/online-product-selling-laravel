@@ -118,12 +118,13 @@ class UserController extends Controller
         $request->validate([
             'old_password'=>'required',
             'new_password'=>'required',
-            'confirm_passwrod'=>'required'
+            'confirm_password'=>'required'
         ]);
 
         $user_id = Session::get('user_id');
         $user = User::where('id',$user_id)->first();
-        if($request->password == $user->password){
+                      
+        if(Hash::make($request->old_password) == $user->password){
             return redirect()->back()->with('success','Success!');
         }else{
             return redirect()->back()->with('fail','Wrong password please try againg!');

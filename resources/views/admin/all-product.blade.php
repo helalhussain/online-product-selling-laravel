@@ -10,13 +10,19 @@
           <h1><i class="fas fa-ad"> </i> All Product</h1>
           
         </div>
+
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fas fa-ad fa-lg"></i></li>
           <li class="breadcrumb-item"><a href="#">product</a></li>
         </ul>
       </div>
 
-     
+      @if(Session::has('success'))
+              <span class="text-danger">{{Session::get('success')}} </span>
+              @endif
+              @if(Session::has('fail'))
+              <span class="text-danger"> {{Session::get('fail')}} </span>
+              @endif 
       <!-----------------list-header---------------------->
       <ul class="list-group">
                 <a href="#" style="text-decoration: none;">

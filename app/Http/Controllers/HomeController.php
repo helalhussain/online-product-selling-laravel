@@ -17,6 +17,7 @@ class HomeController extends Controller
         $products = DB::table('products')->join('categories','products.cat_id','=','categories.id')
         ->join('users','products.user_id','=','users.id')
         ->join('divisions','products.division_id','=','divisions.id')
+        
         ->select('users.*','products.*','categories.category_title','divisions.division_title')
         ->paginate(9);
          $categories = Category::all();

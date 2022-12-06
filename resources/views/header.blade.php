@@ -9,10 +9,10 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link fw-bold active" href="{{url('/')}}" aria-current="page">Home</a>
+                    <a class="nav-link fw-bold {{Request::is('/') ? 'active':''}}" href="{{url('/')}}" aria-current="page">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-bold" href="{{url('/product')}}">Products</a>
+                    <a class="nav-link fw-bold {{Request::is('/product') ? 'active':''}}" href="{{url('/product')}}">Products</a>
                 </li>
    
                 <!-- <li class="nav-item dropdown">

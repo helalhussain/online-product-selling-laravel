@@ -22,8 +22,8 @@
                    
                     @if(Session::has('success'))
                         <span class="text-danger"> {{Session::get('success')}} </span>
-                        @endif
-                        @if(Session::has('fail'))
+                    @endif
+                    @if(Session::has('fail'))
                         <span class="text-danger"> {{Session::get('fail')}} </span>
                     @endif 
 
@@ -35,7 +35,7 @@
                         <input type="password" name="old_password" 
                         class="form-control @error('old_password') is-invalid @enderror" 
                          placeholder="Old Password"
-                        required>
+                        >
                         @error('old_password')
                         <small class="form-text text-danger"> {{$message}} </small>  
                         @enderror               
@@ -44,7 +44,7 @@
                         <label class="labels">New password</label>
                         <input type="password" name="new_password"class="form-control 
                         @error('new_password') is-invalid @enderror"placeholder="New Password"
-                        required>
+                        >
                         @error('new_password')
                         <small class="form-text text-danger"> {{$message}} </small>  
                         @enderror                 
@@ -52,9 +52,9 @@
                     <div class="col-md-12">
                         <label class="labels">confirm password</label>
                         <input type="password" name="confirm_password" class="form-control 
-                        @error('confimr_password') is-invalid @enderror"
+                        @error('confirm_password') is-invalid @enderror"
                          placeholder="Confirm Password" 
-                        required>
+                        >
                         @error('confirm_password')
                         <small class="form-text text-danger"> {{$message}} </small>  
                         @enderror                 

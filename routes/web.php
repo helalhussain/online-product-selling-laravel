@@ -64,5 +64,6 @@ Route::get('/admin/all-user',[AdminUserController::class,'admin_user_page'])->mi
 Route::get('/admin/all-user-status/{id}',[AdminUserController::class,'user_status_change']);
 Route::get('/admin/all-product',[AdminProductController::class,'admin_product_page'])->middleware('isAdmin');
 Route::get('/admin/all-report',[AdminReportController::class,'admin_report_page'])->middleware('isAdmin');
+Route::get('/admin/all-product-status/{id}',[AdminProductController::class,'product_block']);
 
 
