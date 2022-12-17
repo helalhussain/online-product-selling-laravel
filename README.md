@@ -3,7 +3,7 @@
 
 
 
-Open your XAMPP and start Apache & MySQL
+<!-- Open your XAMPP and start Apache & MySQL
 
 Open PHPMyAdmin http://localhost/phpmyadmin
 
@@ -27,4 +27,4 @@ User login: http://localhost:8000/signin
     
 Admin login: http://localhost:8000/admin/login/
     email: admin@gmail.com
-    password:12345
+    password:12345 -->

@@ -15,8 +15,8 @@
                     <h4 class="text-right">Edit Password</h4>
                 </div>
                 @php
-                $user_id = Session::get('user_id');
-            @endphp
+                    $user_id = Session::get('user_id');
+                @endphp
                 <form action="{{url('/my-account/edit-password')}}" method="POST">
                     @csrf
                    
@@ -26,16 +26,12 @@
                     @if(Session::has('fail'))
                         <span class="text-danger"> {{Session::get('fail')}} </span>
                     @endif 
-
-
-
                     <div class="row mt-2">
                     <div class="col-md-12">
                         <label class="labels">Old password</label>
                         <input type="password" name="old_password" 
                         class="form-control @error('old_password') is-invalid @enderror" 
-                         placeholder="Old Password"
-                        >
+                         placeholder="Old Password">
                         @error('old_password')
                         <small class="form-text text-danger"> {{$message}} </small>  
                         @enderror               
@@ -60,10 +56,7 @@
                         @enderror                 
                     </div>
                     
-         
-                    </div>
-              
-                  
+                    </div> 
 
                 <!-- <div class="row mt-3">
                     <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>

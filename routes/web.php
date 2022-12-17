@@ -28,7 +28,7 @@ Route::get('/', function () {
     $all_category = DB::table('categories')->get();
     $all_division = DB::table('divisions')->get();
     return view('welcome',compact('all_category','all_division'));
-});
+})->name('home_page');
 Route::get('/signin',[UserController::class,'signin_page'])->name('signin_page');
 Route::get('/signup',[UserController::class,'signup_Page'])->name('signup_page');
 Route::post('/signup',[UserController::class,'registration']);
@@ -49,10 +49,10 @@ Route::get('/product-detail/{id}',[ProductController::class,'product_detail'])->
 
 
 
-Route::get('/product',[HomeController::class,'product']);
+Route::get('/product',[HomeController::class,'product'])->name('product_page');
 Route::post('/product',[HomeController::class,'report']);
-Route::get('/category/{id}',[HomeController::class,'view_category_product']);
-Route::get('/division/{id}',[HomeController::class,'view_division_product']);
+Route::get('/category/{id}',[HomeController::class,'view_category_product'])->name('category_page');
+Route::get('/division/{id}',[HomeController::class,'view_division_product'])->name('division_page');
 
 //Admin
 Route::get('/admin/admin',[AdminAuthController::class,'admin'])->middleware('isAdmin');

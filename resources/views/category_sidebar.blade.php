@@ -4,19 +4,33 @@ a{
     text-decoration:none;
 
 }
+.active{
+        background: green!important;
+    }
 </style>    
    <ul class="list-group">
     <br/>
             <h6 class="list-group-item list-group-item-action bg-success active" aria-current="true">All Categories</h6>
+             
             @foreach($categories as $show_categories)
-                <a href="{{url('/category/'.$show_categories->id)}}">
-                <li class="list-group-item d-flex font-weight-bold align-items-center">
+     
+                <a href="{{url('/category/'.$show_categories->id)}}" >
+                <li class="list-group-item 
+                 @if($show_categories->id == $category->id) active @endif d-flex font-weight-bold align-items-center">
                 <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                 {{$show_categories->category_title}}
                 </li>
                 </a>
+            
                 @endforeach
+  
                 <!-- <a href="electronics.php">
+                <li class="list-group-item text d-flex font-weight-bold align-items-center">
+                <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
+                Mobile
+                </li>
+                </a>
+                <a href="electronics.php">
                 <li class="list-group-item text d-flex font-weight-bold align-items-center">
                 <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                     Electronics
@@ -57,20 +71,19 @@ a{
                 <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                 Home & Living
                 </li>
-                </a> -->
-            </ul>
+                </a> 
+            </ul> -->
             <br>
             <!---------------------------area------------------->
             <ul class="list-group">
             <h6 class="list-group-item list-group-item-action bg-success active">All of Bangladesh</h6>
             @foreach($divisions as $show_divisions)
             <a href="{{url('/division/'.$show_divisions->id)}}">
-        
                 <li class="list-group-item d-flex font-weight-bold align-items-center">
                 <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                 {{$show_divisions->division_title}}
                 </li>
-                </a>
+            </a>
             @endforeach
                 <!-- <a href="chattogram.php">
                 <li class="list-group-item d-flex font-weight-bold align-items-center">

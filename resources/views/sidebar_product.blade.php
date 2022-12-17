@@ -8,16 +8,25 @@
            <ul class="list-group">
             <br/>
                     <h6 class="list-group-item list-group-item-action bg-success active" aria-current="true">All Categories</h6>
+                     
                     @foreach($categories as $show_categories)
-                        <a href="{{url('/category/'.$show_categories->id)}}" class="active">
+                   
+                        <a href="{{url('/category/'.$show_categories->id)}}" >
                         <li class="list-group-item {{Request::is('/category/'.$show_categories->id) ? 'active':''}} d-flex font-weight-bold align-items-center">
                         <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                         {{$show_categories->category_title}}
                         </li>
                         </a>
+                    
                         @endforeach
-           
+          
                         <!-- <a href="electronics.php">
+                        <li class="list-group-item text d-flex font-weight-bold align-items-center">
+                        <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
+                        Mobile
+                        </li>
+                        </a>
+                        <a href="electronics.php">
                         <li class="list-group-item text d-flex font-weight-bold align-items-center">
                         <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                             Electronics
@@ -58,8 +67,8 @@
                         <span class="badge badge badge-pill mr-2"><i class="fa fa-angle-right font-weight-bold"></i> </span>
                         Home & Living
                         </li>
-                        </a> -->
-                    </ul>
+                        </a> 
+                    </ul> -->
                     <br>
                     <!---------------------------area------------------->
                     <ul class="list-group">

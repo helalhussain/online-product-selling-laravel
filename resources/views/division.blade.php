@@ -1,3 +1,4 @@
+
 @extends('master')
 @section('user_content')
 
@@ -5,19 +6,42 @@
     <section class="bg-white">
         <!---Main start--->
         <div class="main p-3  bg-white">
-        @include('top_section')
+        <!--Top section--> 
+        <div class="top p-2">
+        <div class="row pt-3 bg-success">
+            <div class="col-lg-3">
+                <a href="#" class="fw-bold text-white fs-4 text-decoration-none">
+                    <i class="fas fa-map-marker-alt"></i>{{$division->division_title}}</a>
+            </div>
+            <div class="col-lg-3">
+            <a href="#" class="fw-bold text-white fs-4 text-decoration-none"><i class=""></i> All Category</a>
+            </div>
+            <div class="col-lg-6">
+            <form action="">
+            <div class="input-group mb-3">
+                <input type="search" class="form-control"  name="search"
+                 vlaue="{{$search}}" placeholder="Product title" required>
+                <div class="input-group-append">
+                    <button class="btn btn-light" id="basic-addon2">Search</button>
+                </div>
+            </div>
+            </form>
+            </div>
+        </div>
+        </div>
+        <!--End top--->
 
         <div class="row">
             <div class="row">
                 <div class="col-lg-3">
-                @include('sidebar_product')
+                @include('division_sidebar')
 
                 </div>
                 <!----col-lg-9 start--->
                 <div class="col-lg-9">
                     <div class="allProduct pt-4">
-                    <h5 class="" style="font-size:14px;color:black"><a href="{{url('/')}}">Home</a> 
-                    / <a href="{{url('product')}}">All products in Bangladesh</a></h5>
+                    <h5 class="" style="font-size:14px;color:black"><a class="text-success" href="{{url('/')}}">Home</a> 
+                    / <a class="text-success" href="{{url('product')}}">All products in Bangladesh</a></h5>
                 <h5 class="font-weight-bold text-success">All ads in Bangladesh</h5><hr><br>
 
                     <div class="row gy-4">

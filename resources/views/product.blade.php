@@ -10,7 +10,29 @@
     <section class="bg-white">
         <!---Main start--->
         <div class="main p-3  bg-white">
-        @include('top_section')
+        <!--Top section--> 
+        <div class="top p-2">
+        <div class="row pt-3 bg-success">
+            <div class="col-lg-3">
+                <a href="#" class="fw-bold text-white fs-4 text-decoration-none"><i class="fas fa-map-marker-alt"></i> Location</a>
+            </div>
+            <div class="col-lg-3">
+            <a href="#" class="fw-bold text-white fs-4 text-decoration-none"><i class=""></i> All Products</a>
+            </div>
+            <div class="col-lg-6">
+            <form action="">
+            <div class="input-group mb-3">
+                <input type="search" class="form-control"  name="search" vlaue="{{$search}}" 
+                placeholder="Product title" required>
+                <div class="input-group-append">
+                    <button class="btn btn-light" id="basic-addon2">Search</button>
+                </div>
+            </div>
+            </form>
+            </div>
+        </div>
+        </div>
+        <!--End top--->
 
         <div class="row">
             <div class="row">
@@ -22,8 +44,8 @@
                 <!----col-lg-9 start--->
                 <div class="col-lg-9">
                     <div class="allProduct pt-4">
-                    <h5 class="" style="font-size:14px;color:black"><a href="{{url('/')}}">Home</a> 
-                    / <a href="{{url('product')}}">All products in Bangladesh</a></h5>
+                    <h5 style="font-size:14px;"><a class="text-success" href="{{url('/')}}">Home</a> 
+                    / <a class="text-success" href="{{url('product')}}">All products in Bangladesh</a></h5>
                 <h5 class="font-weight-bold text-success">All ads in Bangladesh</h5><hr><br>
 
                     <div class="row gy-2">
@@ -45,7 +67,8 @@
                             <div class="col-lg-8" style="line-height: 0.5;">
                                 <h6 class="text-success f-5"><strong>{{ $product->first_name}}</strong> 
                                 <strong>{{ $product->last_name}}</strong></h6>
-                                <p class="card-text text-left" style="font-size:13px;"> {{$product->created_at}} </p>
+                                <p class="card-text text-left" style="font-size:13px;"> 
+                                {{$product->created_at}} </p>
                             </div>
                         </div>
                         <!--Top end-->
@@ -58,7 +81,8 @@
                         <div class="cat pt-3" style="line-height: 0.4;">
                         <p class="card-text text-primary font-weight-bold"
                          style="text-transform: capitalize; font-size:16px;">
-                         {{ $product->category_title}} <span class="text-success"> {{ $product->division_title}}</span></p>
+                         {{ $product->category_title}} <span class="text-success"> 
+                            {{ $product->division_title}}</span></p>
                                 <p class="card-text font-weight-bold" style="text-transform: capitalize; font-size:16px;">
                                  {{$product->address}} </p>
                         </div>
@@ -78,9 +102,12 @@
                             <!--card end-->
                         </div>
                         @endforeach
-                    </div><br/>
-                    {{ $products->links() }}
+                    </div>
+                    <!---->
                     <br/>
+                    {{ $products->links() }}
+                    <br/> 
+                    <!----->
 
 
                     </div>

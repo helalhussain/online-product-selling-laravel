@@ -13,37 +13,64 @@ use Session;
 Session_start();
 class HomeController extends Controller
 {
-    public function product(){
-        $products = DB::table('products')->join('categories','products.cat_id','=','categories.id')
-        ->join('users','products.user_id','=','users.id')
-        ->join('divisions','products.division_id','=','divisions.id')
-        
-        ->select('users.*','products.*','categories.category_title','divisions.division_title')
-        ->paginate(9);
+    public function product(Request $request){
+        // $products = DB::table('products')->join('categories','products.cat_id','=','categories.id')
+        // ->join('users','products.user_id','=','users.id')
+        // ->join('divisions','products.division_id','=','divisions.id')
+        // ->select('users.*','products.*','categories.category_title','divisions.division_title')
+        // ->paginate(9);
+        $search = $request['search'] ?? "";
+        if($search !=""){
+            $products = Product::where('title','LIKE',"%$search%")->paginate(9);
+        }else{
+         $products = DB::table('products')->join('categories','products.cat_id','=','categories.id')
+         ->join('users','products.user_id','=','users.id')
+         ->join('divisions','products.division_id','=','divisions.id')
+         ->select('users.*','products.*','categories.category_title','divisions.division_title')->where('products.status','=',1)
+         ->paginate(9);
+        }
+        $data =compact('products','search');
+
          $categories = Category::all();
          $divisions = Division::all();
-         return view('product',compact('products','divisions','categories'));
+         return view('product',compact('products','search','divisions','categories'));
      }
      public function view_category_product($id){
       $categories = DB::table('categories')->where('status',1)->get();
       $divisions = DB::table('divisions')->where('status',1)->get();
+      $category = Category::find($id);
+      $search = $request['search'] ?? "";
+      if($search !=""){
+        $categoryProduct = Product::where('title','LIKE',"%$search%")->paginate(9);
+      }else{
         $categoryProduct = DB::table('products')
         ->join('categories','products.cat_id','=','categories.id')
         ->join('users','products.user_id','=','users.id')
         ->select('users.*','products.*','categories.category_title')
         ->where('cat_id',$id)->get();
+      }
+      $data =compact('categoryProduct','search');
 
-        return view('category',compact('categories','divisions','categoryProduct'));
+ 
+
+        return view('category',compact('categories','category','divisions','search','categoryProduct'));
      }
      public function view_division_product($id){
       $categories = DB::table('categories')->where('status',1)->get();
       $divisions = DB::table('divisions')->where('status',1)->get();
-        $divisionProduct = DB::table('products')->join('categories','products.cat_id','=','categories.id')
-        ->join('users','products.user_id','=','users.id')
-        ->select('users.*','products.*','categories.category_title')
-        ->where('products.division_id','=',$id)->get();
-        
-        return view('division',compact('categories','divisions','divisionProduct'));
+     $division = Division::find($id);
+        $search = $request['search'] ?? "";
+        if($search !=""){
+          $divisionProduct = Product::where('title','LIKE',"%$search%")->paginate(9);
+        }else{
+          $divisionProduct = DB::table('products')->join('categories','products.cat_id','=','categories.id')
+          ->join('users','products.user_id','=','users.id')
+          ->select('users.*','products.*','categories.category_title')
+          ->where('products.division_id','=',$id)->get();
+        }
+        $data =compact('divisionProduct','search');
+  
+        return view('division',compact('categories','division','divisions','search','divisionProduct'));
      }
  
     public function report(Request $request){
